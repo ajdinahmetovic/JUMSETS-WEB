@@ -1,0 +1,45 @@
+.navItems {
+  font-size: 150%;
+}
+.logoStyle{
+  left: 45%;
+  position: fixed;
+  width: 10%;
+  z-index: 10000;
+  bottom: -2%;
+}
+
+.navbar-dark{
+  opacity: 0.5;
+  filter:(opacity=50);
+}
+
+.right{
+  position: fixed;
+  right: 5%;
+
+}
+
+.icon{
+  padding: 10%;
+}
+
+.icoSize{
+  width: 90%;
+}
+
+@media only screen and (max-width: 992px) {
+
+  .logoStyle{
+    left: 70%;
+    position: fixed;
+    width: 30%;
+    z-index: 10000;
+    bottom: -2%;
+  }
+
+  .right{
+
+  }
+
+}

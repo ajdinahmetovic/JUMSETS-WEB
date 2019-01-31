@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ContentfulService, } from '../contentful.service'; //dodan service za cf
-import { Entry } from 'contentful'; //dodano
+import { ContentfulService, } from '../contentful.service'; // dodan service za cf
+import { Entry } from 'contentful'; // dodano
 
 @Component({
   selector: 'app-novost-list',
@@ -9,15 +9,15 @@ import { Entry } from 'contentful'; //dodano
 })
 export class NovostListComponent implements OnInit {
 
-  private novost: Entry<any>[] = []; //dodano
-  
-  constructor(private contentfulService: ContentfulService) { //dodano
-    
+  private novost: Entry<any>[] = []; // dodano
+
+  constructor(private contentfulService: ContentfulService) { // dodano
+
   }
 
-  ngOnInit() { //dodano
+  ngOnInit() { // dodano
     this.contentfulService.getProducts()
-    .then(novost => this.novost = novost)
+    .then(novost => this.novost = novost);
   }
 
 }

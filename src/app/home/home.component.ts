@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  cols: number;
+
   constructor() { }
 
   ngOnInit() {
+    this.cols = (window.innerWidth <= 600) ? 1 : 4;
   }
+  onResize(event) {
+    this.cols = (event.target.innerWidth <= 600) ? 1 : 4;
+  }
+
+
 
 }

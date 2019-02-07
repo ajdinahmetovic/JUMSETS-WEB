@@ -10,14 +10,14 @@ import { Entry } from 'contentful'; // dodano
 export class HomeComponent implements OnInit {
 
   cols: number;
-  private novost: Entry<any>[] = []; // dodano
+  private novosti: Entry<any>[] = []; // dodano
 
   constructor(private contentfulService: ContentfulService) { }
 
   ngOnInit() {
     this.cols = (window.innerWidth <= 600) ? 1 : 4;
     this.contentfulService.getProducts()
-      .then(novost => this.novost = novost);
+      .then(novost => this.novosti = novost);
   }
   onResize(event) {
     this.cols = (event.target.innerWidth <= 600) ? 1 : 4;

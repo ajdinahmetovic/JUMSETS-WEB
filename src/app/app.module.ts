@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatGridListModule, MatTabsModule} from '@angular/material';
 import { HomepageComponent } from './homepage/homepage.component';
-import {MDBBootstrapModule} from 'angular-bootstrap-md';
+import {MDBBootstrapModule, MdbCardComponent} from 'angular-bootstrap-md';
 import { HomeComponent } from './home/home.component';
 
 import { ContentfulService } from './contentful.service'; // dodan service za cf
 import { Routes, RouterModule } from '@angular/router'; // dodano
-import { NovostListComponent } from './novost-list/novost-list.component'; // dodano
+import { NovostListComponent } from './novost-list/novost-list.component';
+import { AboutComponent } from './about/about.component';
+import { AboutContent1Component } from './about-content1/about-content1.component';
+import { AboutContent2Component } from './about-content2/about-content2.component';
+import { AboutContent3Component } from './about-content3/about-content3.component'; // dodano
 
 
 
@@ -20,7 +24,11 @@ import { NovostListComponent } from './novost-list/novost-list.component'; // do
     AppComponent,
     HomepageComponent,
     HomeComponent,
-    NovostListComponent
+    NovostListComponent,
+    AboutComponent,
+    AboutContent1Component,
+    AboutContent2Component,
+    AboutContent3Component
   ],
   imports: [
     BrowserModule,

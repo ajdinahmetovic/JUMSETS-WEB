@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ContentfulService, } from '../contentful.service'; // dodan service za cf
 import { Entry } from 'contentful'; // dodano
+
+declare var particlesJS: any;
+
 
 @Component({
   selector: 'app-home',
@@ -14,6 +17,8 @@ export class HomeComponent implements OnInit {
 
   constructor(private contentfulService: ContentfulService) { }
 
+
+
   ngOnInit() {
     this.cols = (window.innerWidth <= 600) ? 1 : 4;
     this.contentfulService.getProducts()
@@ -22,6 +27,10 @@ export class HomeComponent implements OnInit {
   onResize(event) {
     this.cols = (event.target.innerWidth <= 600) ? 1 : 4;
 
+  }
+
+  ngAfterViewInit() {
+    particlesJS.load('particles-js', 'assets/particles.json', function() { console.log('callback - particles.js config loaded'); });
   }
 
 

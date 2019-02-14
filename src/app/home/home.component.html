@@ -1,14 +1,13 @@
 <mdb-carousel [isControls]="true" [animation]="'slide'">
   <mdb-carousel-item *ngFor="let novost of novosti.slice(0,3)">
     <div class="view">
-      <img class="d-block" src="{{novost.fields.slikeNovosti.fields.file.url}}"
+      <img class="d-block carouselImg" src="{{novost.fields.slikeNovosti.fields.file.url}}"
            alt="First slide">
       <div class="mask flex-center rgba-black-light">
       </div>
 
       <div class="carousel-caption">
-        <h3 style="margin-bottom: 10%" class="h3-responsive">{{novost.fields.naslov}}</h3>
-        <p></p>
+        <h1 class="caption" class="h1-responsive">{{novost.fields.naslov}}</h1>
       </div>
 
 
@@ -18,19 +17,4 @@
 </mdb-carousel>
 
 
-<mat-grid-list [cols]="cols">
-
-  <mat-grid-tile *ngFor="let novost of novosti">
-
-    <div class="card" style="width: 75%;">
-      <img class="card-img-top" src="{{novost.fields.slikeNovosti.fields.file.url}}" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">{{novost.fields.naslov}}</h5>
-        <a href="#" class="btn btn-primary">VISE...</a>
-        <a href="#" class="btn btn-primary">PODIJELI</a>
-
-      </div>
-    </div>
-
-  </mat-grid-tile>
-</mat-grid-list>
+  <app-news-cards></app-news-cards>

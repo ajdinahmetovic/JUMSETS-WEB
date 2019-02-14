@@ -1,7 +1,8 @@
 html,
 body,
 .view {
-  height: 100vh;
+  height: 80vh;
+  position: relative;
 }
 
 /* Full Page Carousel itself*/
@@ -22,4 +23,21 @@ img {
   &.d-block {
     height: 100vh;
   }
+}
+
+.caption{
+  text-align: left;
+  font-size: 400%;
+
+}
+
+.carousel-caption{
+  width: 40%;
+  text-align: left;
+  left: 3%;
+  bottom: 10%;
+}
+
+.carouselImg{
+  width: 100vw
 }

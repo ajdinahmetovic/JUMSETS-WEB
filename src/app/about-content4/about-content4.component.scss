@@ -16,3 +16,41 @@
   text-align: left;
 
 }
+
+
+.title{
+  font-size: 500%;
+  margin-top: 3%
+}
+
+.desc{
+  font-size: 250%
+}
+
+.arrow{
+  margin-top: 5%
+}
+
+@media only screen and (max-width: 600px) {
+
+  .txt{
+
+    margin-top: 5%;
+    text-align: left;
+
+  }
+
+  .title{
+    font-size: 200%;
+    margin-top: 3%
+  }
+  .desc{
+    font-size: 100%;
+  }
+  .arrow{
+    margin-top: 2%;
+    width: 10%;
+  }
+
+
+}

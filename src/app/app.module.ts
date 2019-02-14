@@ -16,7 +16,8 @@ import { AboutComponent } from './about/about.component';
 import { AboutContent1Component } from './about-content1/about-content1.component';
 import { AboutContent2Component } from './about-content2/about-content2.component';
 import { AboutContent3Component } from './about-content3/about-content3.component';
-import { AboutContent4Component } from './about-content4/about-content4.component'; // dodano
+import { AboutContent4Component } from './about-content4/about-content4.component';
+import { NewsCardsComponent } from './news-cards/news-cards.component'; // dodano
 
 
 
@@ -30,7 +31,8 @@ import { AboutContent4Component } from './about-content4/about-content4.componen
     AboutContent1Component,
     AboutContent2Component,
     AboutContent3Component,
-    AboutContent4Component
+    AboutContent4Component,
+    NewsCardsComponent
   ],
   imports: [
     BrowserModule,

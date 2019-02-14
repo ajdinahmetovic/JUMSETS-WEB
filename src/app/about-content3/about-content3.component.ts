@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutContent3Component implements OnInit {
 
+  cols: number;
+
   constructor() { }
 
   ngOnInit() {
+    this.cols = (window.innerWidth <= 600) ? 1 : 2;
   }
+  onResize(event) {
+    this.cols = (event.target.innerWidth <= 600) ? 1 : 2;
 
+  }
 }

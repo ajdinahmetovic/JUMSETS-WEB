@@ -16,8 +16,7 @@ export class NovostListComponent implements OnInit {
   }
 
   ngOnInit() { // dodano
-    this.contentfulService.getProducts()
-    .then(novost => this.novost = novost);
+
   }
 
 }

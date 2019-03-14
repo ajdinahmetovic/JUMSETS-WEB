@@ -1,45 +1,28 @@
-.navItems {
-  font-size: 150%;
+html,
+body,
+.view {
+  height: 80vh;
+  position: relative;
 }
-.logoStyle{
-  left: 45.6%;
+
+
+#particles-js canvas {
+  display: block;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+  -webkit-transition: opacity .8s ease, -webkit-transform 1.4s ease;
+  transition: opacity .8s ease, transform 1.4s ease
+}
+
+#particles-js {
+  width: 100%;
+  height: 100%;
   position: fixed;
-  width: 10%;
-  z-index: 10000;
-  bottom: -2%;
-}
-
-.navbar-dark{
-  opacity: 0.5;
-  filter:(opacity=50);
-}
-
-.right{
-  position: fixed;
-  right: 5%;
-
-}
-
-.icon{
-  padding: 10%;
-}
-
-.icoSize{
-  width: 90%;
-}
-
-@media only screen and (max-width: 992px) {
-
-  .logoStyle{
-    left: 70%;
-    position: fixed;
-    width: 30%;
-    z-index: 10000;
-    bottom: -2%;
-  }
-
-  .right{
-
-  }
-
+  z-index: -10;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }

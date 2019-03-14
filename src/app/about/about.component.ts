@@ -1,18 +1,37 @@
-import { Component, AfterViewInit } from '@angular/core';
-
-declare var particlesJS: any;
+import { Component, OnInit } from '@angular/core';
+import { Entry } from 'contentful';
+import {ContentfulService} from '../contentful.service'; // dodano
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })
-export class AboutComponent implements AfterViewInit {
+export class AboutComponent implements OnInit {
 
-  constructor() { }
+  private oSkoli: Entry<any>[] = []; // dodano
 
-    ngAfterViewInit(){
-      particlesJS.load('particles-js', 'assets/particles.json', function() { console.log('callback - particles.js config loaded'); });
+
+  cols;
+
+  constructor(private contentfulService: ContentfulService) {
+
+    if (window.innerWidth < 990) {
+      this.cols = 1;
+
+    } else {
+      this.cols = 2;
+    }
+
+
+
+  }
+
+  ngOnInit() {
+
+    this.contentfulService.getOskoli()
+      .then(oSkoli => this.oSkoli = oSkoli);
+
   }
 
 }

@@ -1,29 +1,194 @@
 
-<div id="particles-js"></div>
+<div style="" class="blur">
 
-<h1 style="margin-top: 5%; font-size: 500%; text-align: center"> <b>"Jer mi postavljamo standarde obrazovanja"</b></h1>
-<h1 style="margin-bottom: 4%; font-size: 150%; text-align: center">Direktor skole: Selmir Dadanovic</h1>
+  <div  class="inside">
+    <p style="color: #CC0202;   font-size: calc(1.5em + 1vmin);">
+      O ŠKOLI
+    </p>
+  </div>
 
 
+  <h4 style="color: #CC0202; text-align: left; padding-top: 1%;   font-size: calc(0.9em + 1vmin);">
+    {{title.substr(0, len)}} ...
+  </h4>
 
+  <h2 (click)="moreOrLess(!boolExpanded)" style="text-align: center; padding: 1%">Procitaj vise</h2>
 
-<mdb-carousel [isControls]="true" [animation]="'slide'">
-  <mdb-carousel-item *ngFor="let novost of novosti.slice(0,3)">
-    <div class="view">
-      <img class="d-block carouselImg" src="{{novost.fields.slikeNovosti.fields.file.url}}"
-           alt="First slide">
-      <div class="mask flex-center rgba-black-light">
+</div>
+
+<div class="news-container">
+
+  <h1 style="padding-top: 2%; padding-left: 2%; color: #FFFFFF;"> <b>NOVOSTI I VIJESTI</b></h1>
+
+  <mat-grid-list rowHeight="350" [cols]="newsCols">
+
+    <mat-grid-tile *ngFor="let news of novosti.slice(0, 4)">
+
+      <div class="card">
+        <mat-grid-list [cols]="2" rowHeight="265">
+          <mat-grid-tile>
+            <div class="title-block" >
+
+              <p style="padding-top: 4%; padding-left: 4%; font-size: 80%">
+
+                {{news.sys.createdAt | date: 'mediumDate'}}
+
+              </p>
+              <h4 class="title-txt">
+                {{news.fields.naslov.substr(0, 50)}} ...
+              </h4>
+
+              <p style="padding: 10%; font-size: 75%">
+                {{news.fields.opis}}
+              </p>
+
+            </div>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <div class="img-block">
+              <img class="img" src="{{news.fields.slikeNovosti.fields.file.url}}">
+            </div>
+          </mat-grid-tile>
+
+        </mat-grid-list>
+
       </div>
 
-      <div class="carousel-caption">
-        <h1 class="caption" class="h1-responsive">{{novost.fields.naslov}}</h1>
-      </div>
+    </mat-grid-tile>
 
+
+  </mat-grid-list>
+
+  <div style="width: 100%; text-align: center; padding-bottom: 2%">
+    <img style="width: 2%" src="../assets/white_arrow.png">
+  </div>
+  
+</div>
+
+<div style="padding-left: 1.5%; padding-right: 1.5%; margin-top: -1%; background: white">
+  <img style="width: 100%" src="../assets/bubles.png">
+</div>
+
+<mat-grid-list [cols]="infoCols" rowHeight="370">
+
+  <mat-grid-tile [colspan]="2">
+
+    <div class="info-block">
+
+      <h3 style="padding-left: 2%; padding-top: 2%; color: white; ">UPIS U 1. RAZRED</h3>
+
+      <h4 style="padding-left: 2%; padding-top: 1%">U četverogodišnja zanimanja upisuje se ukupno ____ učenika, i to:</h4>
+
+      <ul style="color: #FFFFFF">
+        <li>75 Tehničara računarstva</li>
+        <li>50 Tehničara mehatronike</li>
+        <li>50 Tehničara elektroenergetike</li>
+        <li>25 Tehaničara elektronike</li>
+      </ul>
+
+
+      <h4 style="padding-left: 2%; padding-top: 1%">U trogodišnja zanimanja upisuje se ukupno ____ učenika, i to:</h4>
+
+      <ul style="color: #FFFFFF">
+        <li>25 Električara</li>
+        <li>25 Telekomunikacija</li>
+        <li>25 Auto električara</li>
+      </ul>
 
     </div>
-  </mdb-carousel-item>
 
-</mdb-carousel>
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="infoColspan">
+
+    <div class="files-block">
+
+      <mat-grid-list [cols]="2" rowHeight="360">
+        <mat-grid-tile>
+
+          <div style="width: 100%; height: 100%; padding-top: 15%; padding-left: 7%">
+
+            <h3 style="color: white;">
+              POTREBNI DOKUMENTI
+            </h3>
+
+            <ul  style="margin-top: 2%; color: #FFFFFF; font-size: 120%">
+              <li style="padding: 2%">Svjedočanstvo</li>
+              <li style="padding: 2%">Rodni list</li>
+              <li style="padding: 2%">Pedagoški karton</li>
+              <li style="padding: 2%">Diplome i uvjerenja o ostvarenim rezultatima</li>
+            </ul>
+
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <img style="width: 40%" src="../assets/file.png">
+        </mat-grid-tile>
 
 
-  <app-news-cards></app-news-cards>
+      </mat-grid-list>
+
+    </div>
+
+  </mat-grid-tile>
+
+
+</mat-grid-list>
+
+
+<div style="height: 10%"></div>
+
+<mat-grid-list [cols]="elderCols" >
+
+  <mat-grid-tile>
+    <div style="width: 100%;">
+
+      <mat-grid-list [cols]="5">
+
+        <mat-grid-tile [colspan]="3">
+          <div class="gray-block">
+            <h1 class="class-block">OBRAZOVANJE ODRASLIH</h1>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <div [ngClass]=[thirdClass] (click)="elderDevelopment(0)">
+            <h1 class="class-block">III</h1>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <div [ngClass]=[fourthClass] (click)="elderDevelopment(1)">
+            <h1 class="class-block">IV</h1>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile [rowspan]="4" [colspan]="4">
+          <div style="height: 100%; margin-bottom: 20%; background: #FFFFFF; width: 100%">
+
+          </div>
+
+        </mat-grid-tile>
+
+
+      </mat-grid-list>
+
+    </div>
+
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+
+    <div class="blur-calendar">
+
+    </div>
+  </mat-grid-tile>
+
+</mat-grid-list>
+
+
+<app-footer style="width: 100%"></app-footer>
+
+

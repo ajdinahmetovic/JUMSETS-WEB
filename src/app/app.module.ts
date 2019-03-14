@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatGridListModule, MatTabsModule} from '@angular/material';
+import {MatCardModule, MatGridListModule, MatTabsModule} from '@angular/material';
 import { HomepageComponent } from './homepage/homepage.component';
 import {MDBBootstrapModule, MdbCardComponent} from 'angular-bootstrap-md';
 import { HomeComponent } from './home/home.component';
@@ -12,12 +12,9 @@ import { HomeComponent } from './home/home.component';
 import { ContentfulService } from './contentful.service'; // dodan service za cf
 import { Routes, RouterModule } from '@angular/router'; // dodano
 import { NovostListComponent } from './novost-list/novost-list.component';
+import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
-import { AboutContent1Component } from './about-content1/about-content1.component';
-import { AboutContent2Component } from './about-content2/about-content2.component';
-import { AboutContent3Component } from './about-content3/about-content3.component';
-import { AboutContent4Component } from './about-content4/about-content4.component';
-import { NewsCardsComponent } from './news-cards/news-cards.component'; // dodano
+import { StaffComponent } from './staff/staff.component'; // dodano
 
 
 
@@ -27,12 +24,10 @@ import { NewsCardsComponent } from './news-cards/news-cards.component'; // dodan
     HomepageComponent,
     HomeComponent,
     NovostListComponent,
+    FooterComponent,
     AboutComponent,
-    AboutContent1Component,
-    AboutContent2Component,
-    AboutContent3Component,
-    AboutContent4Component,
-    NewsCardsComponent
+    StaffComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -40,6 +35,7 @@ import { NewsCardsComponent } from './news-cards/news-cards.component'; // dodan
     BrowserAnimationsModule,
     MatTabsModule,
     MatGridListModule,
+    MatCardModule,
     MDBBootstrapModule.forRoot(),
 
   ],

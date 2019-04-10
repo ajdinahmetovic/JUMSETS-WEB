@@ -1,0 +1,35 @@
+.container-news {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.headlines {
+  width: 40%;
+  border: 2px solid #CC0202;
+  background-color: #f7f7f7;
+  opacity: 0.65;
+  filter: alpha(opacity=50);
+}
+
+.headline{
+  height: 33.333%;
+  padding: 5%;
+  width: 100%;
+}
+
+.headline-selected{
+
+  height: 33.333333%;
+  padding: 5%;
+  width: 100%;
+  background-color: #CC0202;
+}
+
+.headline-title{
+  color: #CC0202;
+}
+
+.headline-title-selected {
+  color: white;
+}

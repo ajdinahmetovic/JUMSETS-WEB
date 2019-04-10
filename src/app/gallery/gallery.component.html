@@ -1,0 +1,8 @@
+<h1 style="color: #CC0202; margin-left: 7%; margin-top: 5%" >GALERIJA</h1>
+<div style="margin: 3% 7% 10%;" >
+  <mat-grid-list [cols]="5">
+    <mat-grid-tile *ngFor="let slika of galerija">
+      <img style="width: 100%; height: 100%; object-fit: cover" src="{{slika.fields.fotovideo.fields.file.url}}">
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

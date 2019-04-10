@@ -69,9 +69,7 @@ export class HomeComponent implements OnInit {
 
   }
 
-  ngAfterViewInit() {
-    particlesJS.load('particles-js', 'assets/particles.json', function() { console.log('callback - particles.js config loaded'); });
-  }
+
 
 
   elderDevelopment (id) {

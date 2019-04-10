@@ -4,12 +4,23 @@ div.scrollmenu {
   padding: 2%;
 }
 
+
+.card-new {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 20%; height: 50%;
+  text-align: center;
+
+}
+
+
 .header {
   background-color: #707070;
   height: 10%
 }
 
-div.scrollmenu mdb-card {
+div.scrollmenu app-staffcard {
 
   transition: transform .2s;
   transform: scale(1);
@@ -19,7 +30,7 @@ div.scrollmenu mdb-card {
   text-decoration: none;
 }
 
-div.scrollmenu mdb-card:hover {
+div.scrollmenu app-staffcard:hover {
 
   transition: transform .2s;
   transform: scale(1.1);
@@ -30,7 +41,7 @@ div.scrollmenu mdb-card:hover {
   margin: 1%;
   width: 20%;
   height: 30%;
-  background-color: #707070;
+  border: 0;
 }
 
 html {
@@ -38,8 +49,8 @@ html {
   overflow-x: hidden;
 }
 ::-webkit-scrollbar {
-  width: 0px;  /* remove scrollbar space */
-  background: transparent;  /* optional: just make scrollbar invisible */
+  // width: 0px;  /* remove scrollbar space */
+  // background: transparent;  /* optional: just make scrollbar invisible */
 }
 
 @media only screen and (max-width: 990px)  {

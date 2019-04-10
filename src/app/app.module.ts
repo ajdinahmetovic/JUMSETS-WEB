@@ -14,7 +14,11 @@ import { Routes, RouterModule } from '@angular/router'; // dodano
 import { NovostListComponent } from './novost-list/novost-list.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
-import { StaffComponent } from './staff/staff.component'; // dodano
+import { StaffComponent } from './staff/staff.component';
+import { NewsAllComponent } from './news-all/news-all.component';
+import { StaffcardComponent } from './staffcard/staffcard.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { UpisComponent } from './upis/upis.component'; // dodano
 
 
 
@@ -27,6 +31,10 @@ import { StaffComponent } from './staff/staff.component'; // dodano
     FooterComponent,
     AboutComponent,
     StaffComponent,
+    NewsAllComponent,
+    StaffcardComponent,
+    GalleryComponent,
+    UpisComponent,
 
   ],
   imports: [

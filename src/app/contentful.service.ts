@@ -10,6 +10,7 @@ const CONFIG = {
     oSkoli: 'oSkoli',
     uposlenici: 'uposlenici',
     smjerovi: 'smjerovi',
+    galerija: 'galerija',
   }
 };
 
@@ -54,5 +55,13 @@ export class ContentfulService {
     }, query))
       .then(res => res.items);
   }
+
+  getGallery(query?: object): Promise<Entry<any>[]> {
+    return this.cdaClient.getEntries(Object.assign({
+      content_type: CONFIG.contentTypeIds.galerija
+    }, query))
+      .then(res => res.items);
+  }
+
 
 }

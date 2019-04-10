@@ -8,46 +8,59 @@
 
 </div>
 
-<div class="scrollmenu" >
+
+
+<div class="scrollmenu">
+
+  <app-staffcard *ngFor="let prof of profesori"
+                 [img]="prof.fields.img.fields.file.url"
+                 [title]="prof.fields.name"
+                 [desc]="prof.fields.funkcija"
+                 [descLong]="prof.fields.ulogaSkoli"></app-staffcard>
+
+</div>
+
+
+<div class="header">
+
+  <h1 style="text-align: center; color: white;"> Administracija </h1>
+
+  <h5 style="text-align: center; color: white; margin-top: 0.5%">Lorem ipsum dolor sit amet, ad qui  quas delenit oportere, quidam  molestiae dissentiet ex sea. Ut mea  graeco rationibus adipiscing. </h5>
+
+
+</div>
 
 
 
-  <mdb-card class="card" *ngFor="let prof of uposlenici">
-    <!--Card image-->
-    <mdb-card-img src="{{prof.fields.img.fields.file.url}}" alt="Card image cap"></mdb-card-img>
-    <!--Card content-->
-    <mdb-card-body >
+<div class="scrollmenu">
 
-      <!--Title-->
-      <mdb-card-title>
-        <h4>{{prof.fields.name}}</h4>
-      </mdb-card-title>
+  <app-staffcard *ngFor="let admin of administracija"
+                 [img]="admin.fields.img.fields.file.url"
+                 [title]="admin.fields.name"
+                 [desc]="admin.fields.funkcija"
+                 [descLong]="admin.fields.ulogaSkoli"></app-staffcard>
 
-      <!--Text-->
-      <mdb-card-text> {{prof.fields.funkcija}}
-      </mdb-card-text>
+</div>
 
-      <div style="width: 20%">
 
-        <p style="width: 20%">
-          {{prof.fields.ulogaSkoli}}
-        </p>
+<div class="header">
 
-      </div>
+  <h1 style="text-align: center; color: white;"> Radno osoblje </h1>
 
-    </mdb-card-body>
-  </mdb-card>
+  <h5 style="text-align: center; color: white; margin-top: 0.5%">Lorem ipsum dolor sit amet, ad qui  quas delenit oportere, quidam  molestiae dissentiet ex sea. Ut mea  graeco rationibus adipiscing. </h5>
 
-<!--
-    <div class="card" style="width: 18rem; margin-top: 2%; margin-left: 2%">
-      <img class="card-img-top" src="{{prof.fields.img.fields.file.url}}" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">{{prof.fields.name}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{prof.fields.funckija}}</h6>
-        <p class="card-text">{{prof.fields.ulogaSkoli}}</p>
-      </div>
-    </div>
--->
+
+</div>
+
+
+
+<div class="scrollmenu">
+
+  <app-staffcard *ngFor="let prof of radnoOsoblje"
+                 [img]="prof.fields.img.fields.file.url"
+                 [title]="prof.fields.name"
+                 [desc]="prof.fields.funkcija"
+                 [descLong]="prof.fields.ulogaSkoli"></app-staffcard>
 
 </div>
 

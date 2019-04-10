@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 
+declare var particlesJS: any;
+
+
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -25,4 +28,10 @@ export class HomepageComponent implements OnInit {
     }
 
   }
+
+  ngAfterViewInit() {
+    particlesJS.load('particles-js', 'assets/particles.json', function() { console.log('callback - particles.js config loaded'); });
+  }
+
+
 }

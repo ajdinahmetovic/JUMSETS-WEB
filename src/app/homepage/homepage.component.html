@@ -1,6 +1,6 @@
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-light white ">
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-light white"  >
 
-  <mdb-navbar-brand style="margin-left: -15%">
+  <mdb-navbar-brand style="margin-left: -5%">
     <img style="width: 70%; margin-right: 10%" src="./assets/logo.png">
   </mdb-navbar-brand>
 
@@ -25,7 +25,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect>Obavijesti</a>
+        <a [routerLink]="['novosti']" class="nav-link waves-light" mdbWavesEffect>Obavijesti</a>
       </li>
 
 
@@ -54,7 +54,7 @@
       </a>
 
         <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Redovno skolovanje</a>
+          <a [routerLink]="['upis']" class="dropdown-item waves-light" mdbWavesEffect href="#">Redovno skolovanje</a>
           <a class="dropdown-item waves-light" mdbWavesEffect href="#">Vanredno skolovanje</a>
         </div>
 
@@ -88,3 +88,4 @@
 
 
 <router-outlet> </router-outlet>
+<app-footer></app-footer>

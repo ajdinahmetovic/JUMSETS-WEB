@@ -1,0 +1,31 @@
+<div style="height: 7%; background-color: #CC0202; text-align: center; text-align-all: center" >
+
+  <h2 style="color: white">ODABERITE STRUČNO ZVANJE/ZANIMANJE ZA SEBE</h2>
+
+</div>
+
+
+<div style="margin: 5%;">
+
+  <mat-grid-list [cols]="4" class="center-list">
+
+      <mat-grid-tile *ngFor="let smjer of smjerovi.reverse().slice(0, 4)">
+
+        <img style="width: 90%; height: 90%; object-fit: contain" src="{{smjer.fields.ikona.fields.file.url}}">
+
+      </mat-grid-tile>
+
+  </mat-grid-list>
+
+  <mat-grid-list [cols]="3" class="center-list">
+
+    <mat-grid-tile *ngFor="let smjer of smjerovi.reverse().slice(4, smjerovi.length)">
+
+      <img style="width: 70%; height: 70%; object-fit: contain" src="{{smjer.fields.ikona.fields.file.url}}">
+
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+
+</div>

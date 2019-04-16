@@ -9,7 +9,7 @@
 
   <mat-grid-list [cols]="4" class="center-list">
 
-      <mat-grid-tile *ngFor="let smjer of smjerovi.reverse().slice(0, 4)">
+      <mat-grid-tile (click)="navigate(smjer.sys.id)" *ngFor="let smjer of smjerovi.reverse().slice(0, 4)">
 
         <img style="width: 90%; height: 90%; object-fit: contain" src="{{smjer.fields.ikona.fields.file.url}}">
 

@@ -18,7 +18,9 @@ import { StaffComponent } from './staff/staff.component';
 import { NewsAllComponent } from './news-all/news-all.component';
 import { StaffcardComponent } from './staffcard/staffcard.component';
 import { GalleryComponent } from './gallery/gallery.component';
-import { UpisComponent } from './upis/upis.component'; // dodano
+import { UpisComponent } from './upis/upis.component';
+import { DetailsnewsComponent } from './detailsnews/detailsnews.component';
+import { SmjerComponent } from './smjer/smjer.component'; // dodano
 
 
 
@@ -35,6 +37,8 @@ import { UpisComponent } from './upis/upis.component'; // dodano
     StaffcardComponent,
     GalleryComponent,
     UpisComponent,
+    DetailsnewsComponent,
+    SmjerComponent,
 
   ],
   imports: [

@@ -1,17 +1,18 @@
+
 <div style="" class="blur">
 
   <div  class="inside">
-    <p style="color: #CC0202;   font-size: calc(1.5em + 1vmin);">
+    <p style="color: #CC0202;   font-size: calc(1.5em + 1vmin); font-family: Montserrat-Bold">
       O ŠKOLI
     </p>
   </div>
 
 
-  <h4 style="color: #CC0202; text-align: left; padding-top: 1%;   font-size: calc(0.9em + 1vmin);">
+  <h4 style="color: #CC0202; text-align: left; padding-top: 1%;   font-size: calc(0.9em + 1vmin); font-family: Montserrat-SemiBoldItalic">
     {{title.substr(0, len)}} ...
   </h4>
 
-  <h2 (click)="moreOrLess(!boolExpanded)" style="text-align: center; padding: 1%">Procitaj vise</h2>
+  <h2 [routerLink]="'/oskoli'"  style="text-align: center; padding: 1%; font-family: Montserrat-ExtraBold">Procitaj vise</h2>
 
 </div>
 
@@ -25,22 +26,22 @@
 
       <div class="card">
         <mat-grid-list [cols]="2" rowHeight="265">
-          <mat-grid-tile>
+          <mat-grid-tile (click)="navigate(news.sys.id)">
             <div class="title-block" >
 
-              <p style="padding-top: 4%; padding-left: 4%; font-size: 80%">
+              <p style="padding-top: 4%; padding-left: 4%; font-size: 80%; font-family: Montserrat-Regular">
 
                 {{news.sys.createdAt | date: 'mediumDate'}}
 
               </p>
               <h4 class="title-txt">
-                {{news.fields.naslov.substr(0, 50)}} ...
+                {{news.fields.naslov}}
               </h4>
-
+<!--
               <p style="padding: 10%; font-size: 75%">
                 {{news.fields.opis}}
               </p>
-
+-->
             </div>
           </mat-grid-tile>
 
@@ -75,20 +76,20 @@
 
     <div class="info-block">
 
-      <h3 style="padding-left: 2%; padding-top: 2%; color: white; ">UPIS U 1. RAZRED</h3>
+      <h3 style="padding-left: 2%; padding-top: 2%; color: white; font-family: Montserrat-ExtraBold">UPIS U 1. RAZRED</h3>
 
-      <h4 style="padding-left: 2%; padding-top: 1%">U četverogodišnja zanimanja upisuje se ukupno ____ učenika, i to:</h4>
+      <h4 style="padding-left: 2%; padding-top: 1%; font-family: Montserrat-Bold">U četverogodišnja zanimanja upisuje se ukupno ____ učenika, i to:</h4>
 
-      <ul style="color: #FFFFFF">
+      <ul style="color: #FFFFFF; font-family: Montserrat-Bold">
         <li>75 Tehničara računarstva</li>
         <li>50 Tehničara mehatronike</li>
         <li>50 Tehničara elektroenergetike</li>
         <li>25 Tehaničara elektronike</li>
       </ul>
 
-      <h4 style="padding-left: 2%; padding-top: 1%">U trogodišnja zanimanja upisuje se ukupno ____ učenika, i to:</h4>
+      <h4 style="padding-left: 2%; padding-top: 1%; font-family: Montserrat-Bold">U trogodišnja zanimanja upisuje se ukupno ____ učenika, i to:</h4>
 
-      <ul style="color: #FFFFFF">
+      <ul style="color: #FFFFFF; font-family: Montserrat-Bold">
         <li>25 Električara</li>
         <li>25 Telekomunikacija</li>
         <li>25 Auto električara</li>
@@ -107,11 +108,11 @@
 
           <div style="width: 100%; height: 100%; padding-top: 15%; padding-left: 7%">
 
-            <h3 style="color: white;">
+            <h3 style="color: white; font-family: Montserrat-ExtraBold">
               POTREBNI DOKUMENTI
             </h3>
 
-            <ul  style="margin-top: 2%; color: #FFFFFF; font-size: 120%">
+            <ul  style="margin-top: 2%; color: #FFFFFF; font-size: 120%; font-family: Montserrat-Bold;">
               <li style="padding: 2%">Svjedočanstvo</li>
               <li style="padding: 2%">Rodni list</li>
               <li style="padding: 2%">Pedagoški karton</li>
@@ -193,5 +194,6 @@
 </mat-grid-list>
 
 
-
-
+<!--
+<div [innerHTML]="comment"></div>
+-->

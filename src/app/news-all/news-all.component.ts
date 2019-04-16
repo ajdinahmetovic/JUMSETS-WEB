@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Entry} from 'contentful';
 import {ContentfulService} from '../contentful.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-news-all',
@@ -29,19 +30,26 @@ export class NewsAllComponent implements OnInit {
 
   }
 
-  constructor(private contentfulService: ContentfulService) {
+  constructor(private contentfulService: ContentfulService, private router: Router) {
     // this.titleChanger();
   }
 
   ngOnInit() {
 
     this.contentfulService.getNovosti()
-      .then(novost => this.novosti = novost);
+      .then(novost => {
+        this.novosti = novost;
+     });
 
   }
 
    delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );
+  }
+
+  navigate(id) {
+    this.router.navigateByUrl('/novost/' + id);
+
   }
 
 }

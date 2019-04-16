@@ -1,6 +1,11 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ContentfulService, } from '../contentful.service'; // dodan service za cf
 import { Entry } from 'contentful'; // dodano
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import {combineAll} from 'rxjs/operators';
+import { BLOCKS, MARKS } from '@contentful/rich-text-types';
+import {Router} from '@angular/router';
+
 
 declare var particlesJS: any;
 
@@ -14,6 +19,8 @@ export class HomeComponent implements OnInit {
 
   cols: number;
 
+  dummyData;
+
   newsCols = 4;
   infoCols = 3;
   infoColspan = 1;
@@ -25,12 +32,20 @@ export class HomeComponent implements OnInit {
 
   topNews = [];
 
+  comment = null;
+
   private novosti: Entry<any>[] = []; // dodano
 
-  constructor(private contentfulService: ContentfulService) {
+  options = {
+    renderNode: {
+      [BLOCKS.EMBEDDED_ENTRY]: (node) => '<custom-component>${customComponentRenderer(node)}</custom-component>'
+    }
+  };
+
+  constructor(private contentfulService: ContentfulService, private router: Router) {
 
 
-    if(window.innerWidth < 990) {
+    if (window.innerWidth < 990) {
       this.newsCols = 1;
       this.infoCols = 2;
       this.infoColspan = 2;
@@ -62,7 +77,18 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.cols = (window.innerWidth <= 600) ? 1 : 4;
     this.contentfulService.getNovosti()
-      .then(novost => this.novosti = novost);
+      .then(novost => {
+        this.novosti = novost;
+
+        this.dummyData = novost[0].fields.opis;
+
+        this.comment = documentToHtmlString(this.dummyData as any, this.options as any);
+
+        console.log(this.dummyData);
+
+        // console.log(this.comment)
+
+      } );
   }
   onResize(event) {
     this.cols = (event.target.innerWidth <= 600) ? 1 : 4;
@@ -102,6 +128,11 @@ export class HomeComponent implements OnInit {
 
   }
 
+
+  navigate(id) {
+    this.router.navigateByUrl('/novost/' + id);
+
+  }
 
 
 }

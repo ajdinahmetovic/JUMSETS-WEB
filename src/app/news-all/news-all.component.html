@@ -44,7 +44,7 @@
   <mat-grid-list [cols]="4">
 
 
-    <mat-grid-tile  *ngFor="let novost of novosti">
+    <mat-grid-tile (click)="navigate(novost.sys.id)" *ngFor="let novost of novosti">
 
 
       <div style="width: 90%; height: 90%; background-color: #707070">
@@ -53,7 +53,7 @@
 
         <div style="width: 100%; height: 40%; margin-top: 2%; padding: 5%">
 
-          <h2 style="color: #FFFFFF">{{novost.fields.naslov}}</h2>
+          <h3 style="color: #FFFFFF">{{novost.fields.naslov.substr(0, 45)}}</h3>
 
         </div>
 

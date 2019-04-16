@@ -1,7 +1,19 @@
 mat-grid-tile:hover {
 
-  filter: blur(2px);
-  -webkit-filter: blur(2px);
-  transform: scale(1.01);
 
+
+}
+
+
+.gall:hover{
+  z-index: 500;
+  position: absolute;
+  transition: transform .3s; /* Animation */
+  transform: scale(1.15);
+}
+
+.gall{
+  position: absolute;
+  transform: scale(1);
+  transition: transform .3s; /* Animation */
 }

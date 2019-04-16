@@ -25,7 +25,8 @@ export class DetailsnewsComponent implements OnInit {
 
   options = {
     renderNode: {
-      [BLOCKS.EMBEDDED_ENTRY]: (node) => '<custom-component>${customComponentRenderer(node)}</custom-component>'
+      'embedded-asset-block': (node) =>
+        `<img class="img-fluid" src="${node.data.target.fields.file.url}"/>`
     }
   };
 
@@ -51,7 +52,7 @@ export class DetailsnewsComponent implements OnInit {
 
 
         this.parsed = documentToHtmlString(this.content.fields.opis as any, this.options as any);
-
+        console.log(this.content.fields.opis)
       });
 
 

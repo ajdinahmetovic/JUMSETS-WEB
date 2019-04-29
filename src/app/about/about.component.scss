@@ -5,7 +5,6 @@
   @return $randomNum;
 }
 
-
 .old_photo {
   width: 70%;
   transform:rotate( #{randomNum(-22, 22)}deg );
@@ -16,11 +15,16 @@
 
   font-family: Montserrat-Regular;
   padding: 2%;
-  text-align: center;
+  text-align: justify;
   font-size: calc(1.5em + 1vmin);
 }
-
 
 ::ng-deep md-grid-tile.mat-grid-tile .mat-figure {
    background: transparent;
  }
+
+.blur {
+  width: 100%;
+  background-color: #ffffff;
+
+}

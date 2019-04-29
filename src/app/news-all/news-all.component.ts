@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Entry} from 'contentful';
 import {ContentfulService} from '../contentful.service';
 import {Router} from '@angular/router';
+import {container} from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-news-all',
@@ -13,8 +14,22 @@ export class NewsAllComponent implements OnInit {
   private novosti: Entry<any>[] = []; // dodano
 
 
+  scrHeight = window.innerHeight;
+  scrWidth = window.innerWidth;
+
+  container = 'container-news';
+
+
+
+  sliderWidth = 0.60 * this.scrWidth;
+  sliderHeight = 0.80 * this.scrHeight;
+
   id = 0;
 
+  imgs: Array<object> = [{
+    image: '../assets/example.jpg',
+    thumbImage: '../assets/example.jpg',
+  }];
 
   async titleChanger() {
 
@@ -31,6 +46,17 @@ export class NewsAllComponent implements OnInit {
   }
 
   constructor(private contentfulService: ContentfulService, private router: Router) {
+
+    if (window.innerWidth < 990) {
+      this.container = 'container-news-mobile';
+
+      this.sliderWidth = this.scrWidth;
+      this.sliderHeight = 0.50 * this.scrHeight;
+
+    } else {
+      this.container = 'container-news';
+    }
+
     // this.titleChanger();
   }
 
@@ -39,6 +65,20 @@ export class NewsAllComponent implements OnInit {
     this.contentfulService.getNovosti()
       .then(novost => {
         this.novosti = novost;
+
+        let arr = [];
+
+
+        this.novosti.reverse().slice(0, 4).forEach(function (value) {
+
+          console.log(value.fields.slikeNovosti.fields.file.url);
+          arr.push({
+              image: value.fields.slikeNovosti.fields.file.url,
+              thumbImage: value.fields.slikeNovosti.fields.file.url
+          });
+        });
+
+        this.imgs = arr;
      });
 
   }

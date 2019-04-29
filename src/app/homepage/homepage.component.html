@@ -29,8 +29,11 @@
       </li>
 
 
+      <li class="nav-item">
+        <a [routerLink]="['ucenici']" class="nav-link waves-light" mdbWavesEffect>Kutak za ucenike</a>
+      </li>
 
-
+<!--
       <li class="nav-item dropdown" dropdown>
         <a dropdownToggle mdbWavesEffect class="nav-link   waves-light" mdbWavesEffect>
           Kutak za ucenike
@@ -45,7 +48,7 @@
 
         </div>
       </li>
-
+-->
 
       <li class="nav-item dropdown" dropdown>
       <a dropdownToggle mdbWavesEffect class="nav-link   waves-light" mdbWavesEffect>
@@ -72,8 +75,8 @@
 
 
       <li class="nav-item dropdown" dropdown>
-        <a dropdownToggle mdbWavesEffect class="nav-link   waves-light" mdbWavesEffect>
-          Dokumenti skole
+        <a [routerLink]="'/galerija'" dropdownToggle mdbWavesEffect class="nav-link   waves-light" mdbWavesEffect>
+          Galerija
           </a>
       </li>
 

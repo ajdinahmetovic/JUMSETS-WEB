@@ -10,13 +10,17 @@
 
 
 
-<div class="scrollmenu">
+<div class="scrolling-wrapper">
 
-  <app-staffcard *ngFor="let prof of profesori"
-                 [img]="prof.fields.img.fields.file.url"
-                 [title]="prof.fields.name"
-                 [desc]="prof.fields.funkcija"
-                 [descLong]="prof.fields.ulogaSkoli"></app-staffcard>
+  <div class="pos" *ngFor="let prof of profesori">
+
+    <app-staffcard
+                   [img]="prof.fields.img.fields.file.url"
+                   [title]="prof.fields.name"
+                   [desc]="prof.fields.funkcija"
+                   [descLong]="prof.fields.ulogaSkoli"></app-staffcard>
+  </div>
+
 
 </div>
 
@@ -32,13 +36,17 @@
 
 
 
-<div class="scrollmenu">
+<div class="scrolling-wrapper">
 
-  <app-staffcard *ngFor="let admin of administracija"
-                 [img]="admin.fields.img.fields.file.url"
-                 [title]="admin.fields.name"
-                 [desc]="admin.fields.funkcija"
-                 [descLong]="admin.fields.ulogaSkoli"></app-staffcard>
+  <div class="pos" *ngFor="let prof of administracija">
+
+    <app-staffcard
+      [img]="prof.fields.img.fields.file.url"
+      [title]="prof.fields.name"
+      [desc]="prof.fields.funkcija"
+      [descLong]="prof.fields.ulogaSkoli"></app-staffcard>
+  </div>
+
 
 </div>
 
@@ -54,13 +62,17 @@
 
 
 
-<div class="scrollmenu">
+<div class="scrolling-wrapper">
 
-  <app-staffcard *ngFor="let prof of radnoOsoblje"
-                 [img]="prof.fields.img.fields.file.url"
-                 [title]="prof.fields.name"
-                 [desc]="prof.fields.funkcija"
-                 [descLong]="prof.fields.ulogaSkoli"></app-staffcard>
+  <div class="pos" *ngFor="let prof of radnoOsoblje">
+
+    <app-staffcard
+      [img]="prof.fields.img.fields.file.url"
+      [title]="prof.fields.name"
+      [desc]="prof.fields.funkcija"
+      [descLong]="prof.fields.ulogaSkoli"></app-staffcard>
+  </div>
+
 
 </div>
 

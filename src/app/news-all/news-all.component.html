@@ -6,23 +6,27 @@
 
 </div>
 
-<div class="container-news">
+<div [ngClass]="container">
 
-  <div style="width: 60%">
+  <div [ngClass]="scrWidth < 990 ? 'slider-mobile' : 'slider'">
 
+
+    <ng-image-slider (click)="console.log('CLisk')" style="margin-left: -1.5%" [imageSize] = "{width: sliderWidth, height: sliderHeight}"	 [images]="imgs" [infinite]="true" [autoSlide]="1" #nav></ng-image-slider>
+
+    <!--
     <mdb-carousel style="height: 100%"  [isControls]="true" [animation]="'slide'">
-      <mdb-carousel-item style="height: 100%" *ngFor="let novost of novosti.slice(novosti.length - 3, novosti.length)">
-        <div style="text-align: center; background-color: #CC0202; height: 50%">
-          <img style="height: 100%; width: 100%; object-fit: contain" src="{{novost.fields.slikeNovosti.fields.file.url}}"
+      <mdb-carousel-item *ngFor="let novost of novosti.slice(novosti.length - 3, novosti.length)">
+        <div style="background-color: #CC0202; height: 100%; width: 100%; object-fit: contain">
+          <img style="height: 100%; width: 100%; object-fit: cover" src="{{novost.fields.slikeNovosti.fields.file.url}}"
                alt="First slide">
-
         </div>
       </mdb-carousel-item>
     </mdb-carousel>
+    -->
 
   </div>
 
-  <div class="headlines">
+  <div [ngClass]="scrWidth < 990 ? 'headlines-mobile' : 'headlines'">
 
     <div class="headline" *ngFor="let novost of novosti.slice(novosti.length - 3, novosti.length); let i = index">
 
@@ -41,7 +45,7 @@
 <div style="margin-top: 10%">
 
 
-  <mat-grid-list [cols]="4">
+  <mat-grid-list [cols]="scrWidth < 990 ? 2 : 4">
 
 
     <mat-grid-tile (click)="navigate(novost.sys.id)" *ngFor="let novost of novosti">

@@ -20,8 +20,13 @@ import { StaffcardComponent } from './staffcard/staffcard.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { UpisComponent } from './upis/upis.component';
 import { DetailsnewsComponent } from './detailsnews/detailsnews.component';
-import { SmjerComponent } from './smjer/smjer.component'; // dodano
+import { SmjerComponent } from './smjer/smjer.component';
+import { UceniciComponent } from './ucenici/ucenici.component';
+import { SekcijeComponent } from './sekcije/sekcije.component';
+import { MisijavizijaComponent } from './misijavizija/misijavizija.component'; // dodano
 
+import { NgImageSliderModule } from 'ng-image-slider';
+import { SekcijedetailsComponent } from './sekcijedetails/sekcijedetails.component';
 
 
 @NgModule({
@@ -39,6 +44,10 @@ import { SmjerComponent } from './smjer/smjer.component'; // dodano
     UpisComponent,
     DetailsnewsComponent,
     SmjerComponent,
+    UceniciComponent,
+    SekcijeComponent,
+    MisijavizijaComponent,
+    SekcijedetailsComponent,
 
   ],
   imports: [
@@ -48,6 +57,7 @@ import { SmjerComponent } from './smjer/smjer.component'; // dodano
     MatTabsModule,
     MatGridListModule,
     MatCardModule,
+    NgImageSliderModule,
     MDBBootstrapModule.forRoot(),
 
   ],

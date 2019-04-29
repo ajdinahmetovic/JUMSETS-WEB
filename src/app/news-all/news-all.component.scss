@@ -4,8 +4,31 @@
   flex-direction: row;
 }
 
+.container-news-mobile {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.slider{
+  width: 60%;
+
+
+}
+.slider-mobile{
+  width: 100%;
+}
+
 .headlines {
   width: 40%;
+  border: 2px solid #CC0202;
+  background-color: #f7f7f7;
+  opacity: 0.65;
+  filter: alpha(opacity=50);
+}
+
+.headlines-mobile {
+  width: 100%;
   border: 2px solid #CC0202;
   background-color: #f7f7f7;
   opacity: 0.65;

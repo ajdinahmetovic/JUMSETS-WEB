@@ -1,17 +1,18 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
-<h1 style="padding-top: 4%; text-align: center">O skoli</h1>
+<h1  style="padding-top: 4%; text-align: center">O skoli</h1>
 
-<mat-grid-list [cols]="cols" *ngFor="let data of oSkoli">
+<mat-grid-list  [cols]="cols" *ngFor="let data of oSkoli">
 
   <mat-grid-tile>
     <img class="old_photo" src="{{data.fields.slika.fields.file.url}}">
   </mat-grid-tile>
 
-  <mat-grid-tile>
+  <mat-grid-tile style="margin: 1%" class="blur" >
     <p class="about-txt">
       {{data.fields.tekst}}
     </p>
   </mat-grid-tile>
 
 </mat-grid-list>
+

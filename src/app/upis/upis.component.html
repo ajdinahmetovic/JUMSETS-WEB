@@ -1,6 +1,6 @@
-<div style="height: 7%; background-color: #CC0202; text-align: center; text-align-all: center" >
+<div style="height: 7%; background-color: #CC0202; text-align: center; text-align-all: center; display: flex; align-items: center" >
 
-  <h2 style="color: white">ODABERITE STRUČNO ZVANJE/ZANIMANJE ZA SEBE</h2>
+  <h2 style="color: white; text-align: center; width: 100%">ODABERITE STRUČNO ZVANJE/ZANIMANJE ZA SEBE</h2>
 
 </div>
 
@@ -19,13 +19,12 @@
 
   <mat-grid-list [cols]="3" class="center-list">
 
-    <mat-grid-tile *ngFor="let smjer of smjerovi.reverse().slice(4, smjerovi.length)">
+    <mat-grid-tile (click)="navigate(smjer.sys.id)" *ngFor="let smjer of smjerovi.slice(4, smjerovi.length)">
 
       <img style="width: 70%; height: 70%; object-fit: contain" src="{{smjer.fields.ikona.fields.file.url}}">
 
     </mat-grid-tile>
 
   </mat-grid-list>
-
 
 </div>

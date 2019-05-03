@@ -12,11 +12,12 @@
 }
 
 .about-txt{
-
+  width: 90%;
+  height: 90%;
   font-family: Montserrat-Regular;
   padding: 2%;
   text-align: justify;
-  font-size: calc(1.5em + 1vmin);
+  word-break: break-word;
 }
 
 ::ng-deep md-grid-tile.mat-grid-tile .mat-figure {

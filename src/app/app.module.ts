@@ -27,6 +27,7 @@ import { MisijavizijaComponent } from './misijavizija/misijavizija.component'; /
 
 import { NgImageSliderModule } from 'ng-image-slider';
 import { SekcijedetailsComponent } from './sekcijedetails/sekcijedetails.component';
+import {AngularFittextModule} from 'angular-fittext';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { SekcijedetailsComponent } from './sekcijedetails/sekcijedetails.compone
     MatCardModule,
     NgImageSliderModule,
     MDBBootstrapModule.forRoot(),
+    AngularFittextModule
 
   ],
   exports: [],

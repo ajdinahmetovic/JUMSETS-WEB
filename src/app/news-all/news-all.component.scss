@@ -16,7 +16,16 @@
 
 }
 .slider-mobile{
+  margin-left: -2.5%;
   width: 100%;
+}
+
+.arrow{
+  right: 41%
+}
+
+.arrow-mobile{
+  right: 1%;
 }
 
 .headlines {
@@ -39,10 +48,12 @@
   height: 33.333%;
   padding: 5%;
   width: 100%;
+  transition: all .5s ease-in-out;
 }
 
 .headline-selected{
 
+  transition: all .10s ease-in-out;
   height: 33.333333%;
   padding: 5%;
   width: 100%;

@@ -19,12 +19,16 @@ export class HomeComponent implements OnInit {
 
   cols: number;
 
+  private oSkoli: Entry<any>[] = []; // dodano
+
   dummyData;
 
   newsCols = 4;
   infoCols = 3;
   infoColspan = 1;
   elderCols = 2;
+
+
 
 
   thirdClass = 'active';
@@ -35,6 +39,8 @@ export class HomeComponent implements OnInit {
   comment = null;
 
   private novosti: Entry<any>[] = []; // dodano
+
+  newsTitle = '';
 
   options = {
     renderNode: {
@@ -59,20 +65,8 @@ export class HomeComponent implements OnInit {
 
 
   }
-
-
-
-
   len = 270;
-
   boolExpanded = false;
-
-  title = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et pellentesque diam. Proin ut mauris a lorem varius sodales vel non tellus. Vivamus ac dictum orci. Nam scelerisque vitae dolor id aliquet. Suspendisse lacus odio, ultricies et odio ut, facilisis aliquam massa. Vestibulum tempus facilisis enim, eget tincidunt ligula molestie id. Integer eu sodales risus, ut convallis arcu. Quisque et nisi a lectus faucibus tincidunt vel ac enim. Vestibulum sodales risus at lacinia cursus. Etiam feugiat, dolor id ultrices bibendum, justo quam auctor arcu, ut viverra nisl ante eget sapien. Curabitur vulputate nulla id iaculis sollicitudin. Ut facilisis dictum ullamcorper. Pellentesque non posuere mauris. Proin semper vehicula nulla ut placerat. Praesent purus ante, posuere sed mi ornare, gravida vulputate metus. Praesent sed tincidunt dolor.\n' +
-    '\n' +
-    'Nullam ac nisl mauris. Suspendisse pulvinar lacinia interdum. Duis gravida sem nec est lobortis, in venenatis quam imperdiet. Nullam et enim eros. Aliquam mollis enim eu semper tempor. Mauris vehicula ut ipsum convallis convallis. Sed ultricies nisi eget sagittis pretium.\n' +
-    '\n' +
-    'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec viverra ultrices consequat. Nulla eu dolor consectetur ex pulvinar cursus eget sit amet dui. Nam posuere lacus urna, sit amet maximus risus interdum id. Donec viverra turpis et nunc posuere, eu congue erat sodales. Curabitur ac purus malesuada turpis bibendum ultricies id et ligula. Nam nec consequat neque, a tristique orci. Quisque tempor metus sed nisl auctor, eu venenatis dolor placerat. Aliquam commodo neque et tincidunt imperdiet. Etiam a tellus blandit, dignissim sapien sit amet, suscipit velit. Etiam tellus tellus, bibendum eget rutrum vel, aliquet in ligula. Vivamus nunc nisl, tempor quis nulla ac, aliquet pellentesque leo. Mauris lobortis interdum tempus. Proin tincidunt ';
-
 
   ngOnInit() {
     this.cols = (window.innerWidth <= 600) ? 1 : 4;
@@ -89,6 +83,17 @@ export class HomeComponent implements OnInit {
         // console.log(this.comment)
 
       } );
+
+
+
+    this.contentfulService.getOskoli()
+      .then((oSkoli) => {
+        this.oSkoli = oSkoli;
+
+        this.newsTitle = this.oSkoli[0].fields.tekst;
+
+      });
+
   }
   onResize(event) {
     this.cols = (event.target.innerWidth <= 600) ? 1 : 4;
@@ -116,17 +121,6 @@ export class HomeComponent implements OnInit {
 
   }
 
-  moreOrLess(expanded) {
-
-    if (expanded) {
-      this.len = this.title.length;
-      this.boolExpanded = true;
-    } else {
-      this.len = 270;
-      this.boolExpanded = false;
-    }
-
-  }
 
 
   navigate(id) {

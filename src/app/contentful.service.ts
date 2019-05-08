@@ -4,13 +4,13 @@ import { createClient, Entry} from 'contentful';
 const CONFIG = {
   space: 'eyict3iolun1',
   accessToken: 'ca09a148a157033fefa0fce9458a66f04c694d9a4f95276f23eae52b4f20c6c2',
-
   contentTypeIds: {
     novost: 'novost',
     oSkoli: 'oSkoli',
     uposlenici: 'uposlenici',
     smjerovi: 'smjerovi',
-    galerija: 'galerija',
+    galerija: 'gallery',
+    dogadjaj: 'dogadjaj',
   }
 };
 
@@ -24,7 +24,7 @@ export class ContentfulService {
     accessToken: CONFIG.accessToken
   });
 
-  constructor() { } //template za data fetch
+  constructor() { } // template za data fetch
 
   getNovosti(query?: object): Promise<Entry<any>[]> {
     return this.cdaClient.getEntries(Object.assign({
@@ -33,14 +33,12 @@ export class ContentfulService {
     .then(res => res.items);
   }
 
-
   getOskoli(query?: object): Promise<Entry<any>[]> {
     return this.cdaClient.getEntries(Object.assign({
       content_type: CONFIG.contentTypeIds.oSkoli
     }, query))
       .then(res => res.items);
   }
-
 
   getUposlenici(query?: object): Promise<Entry<any>[]> {
     return this.cdaClient.getEntries(Object.assign({
@@ -59,6 +57,12 @@ export class ContentfulService {
   getGallery(query?: object): Promise<Entry<any>[]> {
     return this.cdaClient.getEntries(Object.assign({
       content_type: CONFIG.contentTypeIds.galerija
+    }, query))
+      .then(res => res.items);
+  }
+  getEvents(query?: object): Promise<Entry<any>[]> {
+    return this.cdaClient.getEntries(Object.assign({
+      content_type: CONFIG.contentTypeIds.dogadjaj
     }, query))
       .then(res => res.items);
   }

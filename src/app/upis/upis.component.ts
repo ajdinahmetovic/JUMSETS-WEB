@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ContentfulService} from '../contentful.service';
 import {Entry} from 'contentful';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-upis',
@@ -10,16 +10,55 @@ import {Router} from '@angular/router';
 })
 export class UpisComponent implements OnInit {
 
-  private smjerovi: Entry<any>[] = []; // dodano
+   smjerovi: Entry<any>[] = []; // dodano
+   help: Entry<any>[] = []; // dodano
 
-  constructor(private contentfulService: ContentfulService, private router: Router) {
+  pageComingSoon = false;
+
+
+  constructor(private contentfulService: ContentfulService, private router: Router, private route: ActivatedRoute) {
 
   }
 
   ngOnInit() {
 
-    this.contentfulService.getSmjerovi()
-      .then(smjerovi => this.smjerovi = smjerovi);
+
+      this.contentfulService.getSmjerovi()
+        .then((smjerovi) => {
+
+          this.help = smjerovi;
+
+          let arr = [];
+
+          if (this.route.snapshot.params['tip'] === 'redovno') {
+
+            this.help.forEach(function (value) {
+
+              if (value.fields.skolovanje === 'Redovno') {
+                arr.push(value);
+              }
+            });
+
+
+
+          } else if (this.route.snapshot.params['tip'] === 'vanredno') {
+
+            this.help.forEach(function (value) {
+
+              if (value.fields.skolovanje === 'Vanredno') {
+                arr.push(value);
+              }
+            });
+
+          }
+
+
+
+          this.smjerovi = arr;
+
+          this.pageComingSoon = this.smjerovi.length === 0;
+
+        });
 
   }
 

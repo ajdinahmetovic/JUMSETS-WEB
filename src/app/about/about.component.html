@@ -2,17 +2,19 @@
 
 <h1  style="padding-top: 4%; text-align: center">O skoli</h1>
 
-<mat-grid-list  [cols]="cols" *ngFor="let data of oSkoli">
+<mat-grid-list style="overflow: hidden" [cols]="cols" *ngFor="let data of oSkoli">
 
   <mat-grid-tile>
     <img class="old_photo" src="{{data.fields.slika.fields.file.url}}">
   </mat-grid-tile>
 
-  <mat-grid-tile style="margin: 1%" class="blur" >
-    <h5 class="about-txt">
-      {{data.fields.tekst}}
-    </h5>
+  <mat-grid-tile  >
+    <div style="margin: 1%" class="blur">
+      <h5 class="about-txt">
+        {{data.fields.tekst}}
+      </h5>
+    </div>
+
   </mat-grid-tile>
 
 </mat-grid-list>
-

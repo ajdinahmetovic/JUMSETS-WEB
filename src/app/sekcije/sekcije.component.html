@@ -1,0 +1,19 @@
+
+<div style="justify-content: center; text-align: center; align-items: center">
+
+
+  <mat-grid-list [cols]="scrWidth > 990 ? 4 : 2" class="center-list" style="margin-left: 10%; margin-right: 10%">
+    <mat-grid-tile [routerLink]="'/sekcija/' + id" *ngFor="let sekcija of sekcije, let id = index" class="center-list">
+
+      <img style="width: 90%; height: 90%; object-fit: contain" [src]="sekcija.fields.ikona.fields.file.url">
+
+    </mat-grid-tile>
+  </mat-grid-list>
+
+
+
+
+
+
+
+</div>

@@ -1,0 +1,66 @@
+<h1 [ngClass]="width < 990 ? 'headline-mobile' : 'headline'">
+
+  KUTAK ZA UCENIKE
+
+</h1>
+
+<div style="height: 50%; background-color: #707070; overflow-y: hidden">
+
+  <h2 style="margin-left: 3%; margin-top: 1%; font-family: Montserrat-Bold">
+    OGLASNA PLOCA
+  </h2>
+
+
+  <div class="scrolling-wrapper">
+
+
+    <div [ngClass]="width < 990 ? 'oglas-mobile' : 'oglas'" *ngFor="let oglas of oglasi">
+
+      <div style="height: 100%; width: 18rem; padding: 5%">
+
+
+        <h3 style="margin: 1%; width: 100%; font-family: Montserrat-SemiBold">{{oglas.fields.naslov}}</h3>
+
+        <p style="overflow-y: scroll; height: 70%; width: 100%">{{oglas.fields.sadrzajOglasa}}</p>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+  
+  
+
+</div>
+
+
+
+<mat-grid-list style="margin-left: 5%; margin-right: 5%" [cols]="width < 990 ? 2 : 5">
+
+
+  <mat-grid-tile>
+    <img style="width: 90%" src="../../assets/vijece.png">
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <img style="width: 90%" src="../../assets/raspored.png">
+  </mat-grid-tile>
+
+  <mat-grid-tile (click)="openMoodle()">
+    <img style="width: 90%" src="../../assets/moodle.png">
+  </mat-grid-tile>
+
+  <mat-grid-tile [routerLink]="'/sekcije'" >
+    <img style="width: 90%" src="../../assets/sekcije.png">
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <img style="width: 90%" src="../../assets/maturanti.png">
+  </mat-grid-tile>
+
+
+</mat-grid-list>

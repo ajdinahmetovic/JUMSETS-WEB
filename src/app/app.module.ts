@@ -1,14 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatCardModule, MatGridListModule, MatTabsModule} from '@angular/material';
+import {DateAdapter, MatCardModule, MatGridListModule, MatTabsModule} from '@angular/material';
 import { HomepageComponent } from './homepage/homepage.component';
 import {MDBBootstrapModule, MdbCardComponent} from 'angular-bootstrap-md';
 import { HomeComponent } from './home/home.component';
-
 import { ContentfulService } from './contentful.service'; // dodan service za cf
 import { Routes, RouterModule } from '@angular/router'; // dodano
 import { NovostListComponent } from './novost-list/novost-list.component';
@@ -23,11 +21,11 @@ import { DetailsnewsComponent } from './detailsnews/detailsnews.component';
 import { SmjerComponent } from './smjer/smjer.component';
 import { UceniciComponent } from './ucenici/ucenici.component';
 import { SekcijeComponent } from './sekcije/sekcije.component';
-import { MisijavizijaComponent } from './misijavizija/misijavizija.component'; // dodano
-
 import { NgImageSliderModule } from 'ng-image-slider';
 import { SekcijedetailsComponent } from './sekcijedetails/sekcijedetails.component';
 import {AngularFittextModule} from 'angular-fittext';
+import { EventsComponent } from './events/events.component';
+
 
 
 @NgModule({
@@ -47,8 +45,8 @@ import {AngularFittextModule} from 'angular-fittext';
     SmjerComponent,
     UceniciComponent,
     SekcijeComponent,
-    MisijavizijaComponent,
     SekcijedetailsComponent,
+    EventsComponent,
 
   ],
   imports: [

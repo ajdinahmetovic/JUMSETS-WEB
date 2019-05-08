@@ -1,0 +1,16 @@
+::ng-deep.center-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+}
+
+.classOne{
+  width: 25%;
+  height: 25%;
+  margin-bottom: 75%;
+  object-fit: contain
+}
+

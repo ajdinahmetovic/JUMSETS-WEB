@@ -1,50 +1,30 @@
 <h1 style="color: #CC0202; margin-left: 7%; margin-top: 5%" >GALERIJA</h1>
 <div style="margin: 3% 7% 10%;" >
   <mat-grid-list [cols]="galCols">
-    <mat-grid-tile (click)="showImg(slika)" class="gall" *ngFor="let slika of galerija">
-      <img style="width: 100%; height: 100%; object-fit: cover" src="{{slika.fields.fotovideo.fields.file.url}}">
+
+    <mat-grid-tile *ngFor="let album of normalizedArr">
+
+      <div style="width: 99%; height: 99%; background-color: #707070">
+
+        <ng-image-slider [imagePopup]="true" [infinite]="true" [showArrow]="false" style="width: 100%; height: 50%; margin-left: -5.5%; object-fit: cover" [images]="album.imgs" [slideImage]="1" [autoSlide]="2"></ng-image-slider>
+
+        <div style="width: 100%; height: 40%; margin-top: 2%; padding: 5%">
+
+          <h3 [minFontSize]="85" [fittext]="true" [fontUnit]="'%'" style="color: #FFFFFF">{{album.title.substr(0, 45)}}</h3>
+
+        </div>
+
+        <div style="height: 10%; padding: 2%;">
+
+       <!--   <p [fittext]="true" style="color: #FFFFFF">{{album.sys.createdAt | date: 'mediumDate'}} {{album.sys.publishedBy}}</p>  -->
+
+        </div>
+
+      </div>
+
     </mat-grid-tile>
+
+
+
   </mat-grid-list>
-</div>
-
-<div style="margin: 2%;" mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
-  <div class="modal-dialog-centered modal-fluid" role="document">
-    <div class="modal-content">
-
-      <mat-grid-list [cols]="cols">
-
-        <mat-grid-tile style="background-color: #707070" [colspan]="colspan">
-
-          <img alt="Slika" style="object-fit: fill" [src]=currImg>
-
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-
-          <div style="width: 100%; height: 100%; display: flex; flex-direction: column ">
-
-            <div style="height: 10%; width: 100%; text-align: right;">
-              <img (click)="basicModal.hide()" style="height: 60%; margin-right: 3%; margin-top: 3%" src="../../assets/close.png">
-            </div>
-
-            <div style="height: 90%; width: 100%; text-align: center">
-
-              <h2>{{title}}</h2>
-
-            </div>
-
-
-
-
-          </div>
-
-
-        </mat-grid-tile>
-
-      </mat-grid-list>
-
-
-
-    </div>
-  </div>
 </div>

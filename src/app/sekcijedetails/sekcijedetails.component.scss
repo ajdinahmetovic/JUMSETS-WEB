@@ -1,0 +1,20 @@
+.item:hover {
+  background-color: #CC0202;
+
+}
+
+.item:hover .itemHov{
+  background-color: #CC0202;
+}
+
+.itemHov{
+  background-color: #707070
+}
+
+.blur {
+  width: 100%;
+  background-color: #ffffff;
+  opacity: 0.9;
+  filter: alpha(opacity=60);
+
+}

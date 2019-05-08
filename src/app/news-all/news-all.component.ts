@@ -12,42 +12,6 @@ import { NgImageSliderComponent } from 'ng-image-slider';
 })
 export class NewsAllComponent implements OnInit {
 
-  @ViewChild('slider') slider: NgImageSliderComponent;
-
-  private novosti: Entry<any>[] = []; // dodano
-
-
-  scrHeight = window.innerHeight;
-  scrWidth = window.innerWidth;
-
-  container = 'container-news';
-
-
-
-  sliderWidth = 0.60 * this.scrWidth;
-  sliderHeight = 0.80 * this.scrHeight;
-
-  id = 0;
-
-  imgs: Array<object> = [{
-    image: '../assets/example.jpg',
-    thumbImage: '../assets/example.jpg',
-  }];
-
-  async titleChanger() {
-
-    while (true) {
-
-      this.delay(500);
-      this.id++;
-      if (this.id === 3) {
-          this.id = 0;
-      }
-
-    }
-
-  }
-
   constructor(private contentfulService: ContentfulService, private router: Router) {
 
     if (window.innerWidth < 990) {
@@ -63,16 +27,58 @@ export class NewsAllComponent implements OnInit {
     // this.titleChanger();
   }
 
+  @ViewChild('slider') slider: NgImageSliderComponent;
+
+
+
+
+  scrHeight = window.innerHeight;
+  scrWidth = window.innerWidth;
+
+  container = 'container-news';
+
+
+
+  sliderWidth = 0.60 * this.scrWidth;
+  sliderHeight = 0.80 * this.scrHeight;
+
+  id = 0;
+
+  imgs: Array<object> = [];
+
+
+  private novosti: Entry<any>[] = []; // dodano
+
+  async titleChanger() {
+
+    while (true) {
+
+      this.delay(500);
+      this.id++;
+      if (this.id === 3) {
+          this.id = 0;
+      }
+
+    }
+
+  }
+
+
   ngOnInit() {
 
     this.contentfulService.getNovosti()
       .then(novost => {
         this.novosti = novost;
 
-        let arr = [];
+        this.novosti.sort(function(a, b) {
+          const dateA = new Date(a.sys.createdAt) as any, dateB = new Date(b.sys.createdAt) as any;
+          return dateA - dateB;
+        });
 
+        this.novosti.reverse();
+        const arr = [];
 
-        this.novosti.reverse().slice(0, 4).forEach(function (value) {
+        this.novosti.slice(0, 3).forEach(function (value) {
 
           console.log(value.fields.slikeNovosti.fields.file.url);
           arr.push({

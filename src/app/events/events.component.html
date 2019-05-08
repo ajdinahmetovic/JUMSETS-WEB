@@ -1,0 +1,59 @@
+<div class="container-fluid">
+
+<div class="row">
+
+  <div class="col-sm-6" *ngFor="let event of topEvents.slice(0, 2)">
+
+    <div style="width: 90%; height: 90%;" class="itemHov">
+
+      <img style="width: 100%; height: 50%; object-fit: cover" [src]="event.fields.coverDogadjaja.fields.file.url">
+
+      <div style="width: 100%; height: 40%; margin-top: 2%; padding: 5%">
+
+        <h3 style="color: #FFFFFF">{{event.fields.naziv.substr(0, 45)}}</h3>
+
+      </div>
+
+      <div style="height: 10%; padding: 2%;">
+
+        <p style="color: #FFFFFF">{{event.fields.datumDogadjaja | date: 'mediumDate'}}</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>
+
+<div class="row">
+
+  <div class="col-sm-6" *ngFor="let event of topEvents.slice(2, 4)">
+
+    <div style="width: 90%; height: 90%;" class="itemHov">
+
+      <img style="width: 100%; height: 50%; object-fit: cover" [src]="event.fields.coverDogadjaja.fields.file.url">
+
+      <div style="width: 100%; height: 40%; margin-top: 2%; padding: 5%">
+
+        <h3 style="color: #FFFFFF">{{event.fields.naziv.substr(0, 45)}}</h3>
+
+      </div>
+
+      <div style="height: 10%; padding: 2%;">
+
+        <p style="color: #FFFFFF">{{event.fields.datumDogadjaja | date: 'mediumDate'}}</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>
+
+
+
+</div>

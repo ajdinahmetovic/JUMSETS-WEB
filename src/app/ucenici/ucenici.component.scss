@@ -1,0 +1,53 @@
+.scrolling-wrapper {
+  // margin-top: 5%;
+  display: flex;
+
+  height: 70%;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden ;
+
+  .pos {
+    vertical-align: middle;
+    margin-top: 2%;
+    padding: 1%;
+    margin-bottom: -10%;
+  }
+}
+
+.oglas{
+
+  background-color: #FFFFFF;
+  white-space: pre-line;
+  width: 18rem;  height: 100%;
+  margin: 2%
+
+}
+
+.oglas-mobile{
+
+  background-color: #FFFFFF;
+  white-space: pre-line;
+  width: 18rem;
+  height: 100%;
+  margin: 2%
+
+}
+
+.headline{
+  color: #CC0202;
+  font-family: Montserrat-Bold;
+  margin-left: 3%;
+  margin-top: 1%
+}
+.headline-mobile{
+  width: 100%;
+  color: #CC0202;
+  font-family: Montserrat-Bold;
+  text-align: center;
+  margin-left: 3%;
+  margin-top: 1%
+}
+
+
+

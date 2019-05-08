@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: 'osoblje', component: StaffComponent},
   {path: 'novosti', component: NewsAllComponent},
   {path: 'galerija', component: GalleryComponent},
-  {path: 'upis', component: UpisComponent},
+  {path: 'skolovanje/:tip', component: UpisComponent},
   {path: 'novost/:id', component: DetailsnewsComponent },
   {path: 'smjer/:id', component: SmjerComponent},
   {path: 'ucenici', component: UceniciComponent},

@@ -1,0 +1,58 @@
+<mat-grid-list [cols]="width < 990 ? 1 : 2">
+
+
+
+  <mat-grid-tile>
+
+    <div class="blur" style="width: 85%; height: 85%">
+
+      <div style="height: 10%; width: 100%; background-color: #CC0202; display: flex; align-items: center; justify-content: center; text-align: center">
+
+        <h2 style="color: white;">{{obj.fields.naziv}}</h2>
+
+      </div>
+
+      <div style="width: 100%; height: 90%; text-align: justify">
+
+        <h4 style="padding: 5%">{{obj.fields.opis}}</h4>
+
+      </div>
+
+    </div>
+
+  </mat-grid-tile>
+
+
+  <mat-grid-tile>
+    <img style="object-fit: fill; width: 85%" [src]="obj.fields.ikona.fields.file.url">
+  </mat-grid-tile>
+
+</mat-grid-list>
+
+<div style="width: 100%; background-color: #707070; height: 85%; margin-bottom: 5%">
+
+  <mat-grid-list  [cols]="width < 990 ? 2 : 4">
+
+    <mat-grid-tile style="padding: 1%" class="item"  *ngFor="let post of blog">
+      <div style="width: 90%; height: 90%;" class="itemHov">
+
+        <img style="width: 100%; height: 50%; object-fit: cover" src="{{post.fields.slika.fields.file.url}}">
+
+        <div style="width: 100%; height: 40%; margin-top: 2%; padding: 5%">
+
+          <h3 style="color: #FFFFFF">{{post.fields.naslov.substr(0, 45)}}</h3>
+
+        </div>
+
+        <div style="height: 10%; padding: 2%;">
+
+          <p style="color: #FFFFFF">{{post.sys.createdAt | date: 'mediumDate'}}</p>
+
+        </div>
+
+      </div>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+
+</div>

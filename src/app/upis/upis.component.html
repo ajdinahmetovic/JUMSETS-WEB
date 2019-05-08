@@ -9,7 +9,7 @@
 
   <mat-grid-list [cols]="4" class="center-list">
 
-      <mat-grid-tile (click)="navigate(smjer.sys.id)" *ngFor="let smjer of smjerovi.reverse().slice(0, 4)">
+      <mat-grid-tile (click)="navigate(smjer.sys.id)" *ngFor="let smjer of smjerovi">
 
         <img style="width: 90%; height: 90%; object-fit: contain" src="{{smjer.fields.ikona.fields.file.url}}">
 
@@ -17,14 +17,10 @@
 
   </mat-grid-list>
 
-  <mat-grid-list [cols]="3" class="center-list">
+</div>
 
-    <mat-grid-tile (click)="navigate(smjer.sys.id)" *ngFor="let smjer of smjerovi.slice(4, smjerovi.length)">
+<div style="width: 100%; height: 100%; text-align: center; align-items: center; font-family: Montserrat-Bold">
 
-      <img style="width: 70%; height: 70%; object-fit: contain" src="{{smjer.fields.ikona.fields.file.url}}">
-
-    </mat-grid-tile>
-
-  </mat-grid-list>
+  <h1>Uskoro dostupno</h1>
 
 </div>

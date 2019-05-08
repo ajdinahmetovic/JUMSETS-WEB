@@ -5,6 +5,10 @@ body,
   position: relative;
 }
 
+*{
+  overflow-x: hidden;
+  overflow: hidden;
+}
 
 #particles-js canvas {
   display: block;

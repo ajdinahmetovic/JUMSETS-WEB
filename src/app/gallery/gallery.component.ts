@@ -14,8 +14,23 @@ export class GalleryComponent implements OnInit {
 
   private galerija: Entry<any>[] = []; // dodano
 
+
+  imgs: Array<object> = [{
+    image: '../assets/example.jpg',
+    thumbImage: '../assets/example.jpg',
+  }];
+
+
+  normalizedArr = [];
+
    currImg;
    title;
+
+   scrHeight = window.innerHeight;
+   scrWidth = window.innerWidth;
+
+   imgWidth;
+   imgHeight;
 
    cols = 3;
    galCols = 5;
@@ -28,7 +43,10 @@ export class GalleryComponent implements OnInit {
 
       this.cols = 1;
       this.colspan = 1;
-      this.galCols = 3;
+      this.galCols = 1;
+      this.imgWidth = this.scrWidth - (0.10 * this.scrWidth) / 3;
+
+
 
     } else {
 
@@ -36,15 +54,48 @@ export class GalleryComponent implements OnInit {
       this.colspan = 2;
       this.galCols = 5;
 
+      this.imgWidth = this.scrWidth - (0.10 * this.scrWidth) / 5;
+
     }
   }
 
   ngOnInit() {
 
     this.contentfulService.getGallery()
-      .then(picture => this.galerija = picture);
+      .then((picture) => {
 
-    console.log(this.galerija);
+        this.galerija = picture;
+
+
+        let arr = [];
+
+        let album: Array<object> = [];
+
+        this.galerija.forEach(function (value) {
+          album = [];
+          value.fields.slike.forEach(function (val) {
+
+            album.push({
+              image: val.fields.file.url,
+              thumbImage: val.fields.file.url
+            });
+
+          });
+
+
+          arr.push({
+            title: value.fields.naslovAlbuma,
+            imgs: album
+          });
+
+        });
+
+        this.normalizedArr = arr;
+        console.log(arr);
+
+
+      });
+
   }
 
 

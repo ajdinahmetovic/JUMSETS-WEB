@@ -16,6 +16,7 @@
   height: 90%;
   font-family: Montserrat-Regular;
   padding: 2%;
+  font-size: 200%;
   text-align: justify;
   word-break: break-word;
 }
@@ -25,7 +26,32 @@
  }
 
 .blur {
-  width: 100%;
+  width: 90%;
+  margin: 10%;
   background-color: #ffffff;
 
+}
+
+@media only screen and (max-width: 1152px){
+  .about-txt{
+    width: 90%;
+    height: 90%;
+    font-family: Montserrat-Regular;
+    padding: 2%;
+    font-size: 150%;
+    text-align: justify;
+    word-break: break-word;
+  }
+}
+
+@media only screen and (max-width: 800px){
+  .about-txt{
+    width: 90%;
+    height: 90%;
+    font-family: Montserrat-Regular;
+    padding: 2%;
+    font-size: 130%;
+    text-align: justify;
+    word-break: break-word;
+  }
 }

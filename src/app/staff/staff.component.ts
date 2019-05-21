@@ -9,10 +9,10 @@ import {ContentfulService} from '../contentful.service';
 })
 export class StaffComponent implements OnInit {
 
-  private uposlenici: Entry<any>[] = []; // dodano
-  private profesori: Entry<any>[] = []; // dodano
-  private administracija: Entry<any>[] = []; // dodano
-  private radnoOsoblje: Entry<any>[] = []; // dodano
+   uposlenici: Entry<any>[] = []; // dodano
+   profesori: Entry<any>[] = []; // dodano
+   administracija: Entry<any>[] = []; // dodano
+   radnoOsoblje: Entry<any>[] = []; // dodano
 
   constructor(private contentfulService: ContentfulService) {
 

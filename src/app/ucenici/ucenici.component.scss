@@ -19,7 +19,8 @@
 
   background-color: #FFFFFF;
   white-space: pre-line;
-  width: 18rem;  height: 100%;
+  width: 18rem;
+  height: 100%;
   margin: 2%
 
 }
@@ -47,6 +48,28 @@
   text-align: center;
   margin-left: 3%;
   margin-top: 1%
+}
+
+@media screen and (max-width: 1440px) and (max-height: 900px) {
+
+  .scrolling-wrapper {
+    // margin-top: 5%;
+    display: flex;
+
+    height: 90%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden ;
+    padding-bottom: 5%;
+
+    .pos {
+      vertical-align: middle;
+      margin-top: 2%;
+      padding: 1%;
+      margin-bottom: -10%;
+    }
+  }
+
 }
 
 

@@ -11,6 +11,9 @@ import {SmjerComponent} from './smjer/smjer.component';
 import {UceniciComponent} from './ucenici/ucenici.component';
 import {SekcijeComponent} from './sekcije/sekcije.component';
 import {SekcijedetailsComponent} from './sekcijedetails/sekcijedetails.component';
+import {RoditeljiComponent} from './roditelji/roditelji.component';
+import {VijecerComponent} from './vijecer/vijecer.component';
+import {KonsultacijeComponent} from './konsultacije/konsultacije.component';
 
 
 const routes: Routes = [
@@ -24,7 +27,10 @@ const routes: Routes = [
   {path: 'smjer/:id', component: SmjerComponent},
   {path: 'ucenici', component: UceniciComponent},
   {path: 'sekcije', component: SekcijeComponent},
-  {path: 'sekcija/:id', component: SekcijedetailsComponent}
+  {path: 'sekcija/:id', component: SekcijedetailsComponent},
+  {path: 'roditelji', component: RoditeljiComponent},
+  {path: 'vijece/:tip', component: VijecerComponent},
+  {path: 'informacije', component: KonsultacijeComponent}
 ];
 
 @NgModule({

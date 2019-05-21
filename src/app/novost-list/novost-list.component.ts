@@ -9,7 +9,7 @@ import { Entry } from 'contentful'; // dodano
 })
 export class NovostListComponent implements OnInit {
 
-  private novost: Entry<any>[] = []; // dodano
+  novost: Entry<any>[] = []; // dodano
 
   constructor(private contentfulService: ContentfulService) { // dodano
 

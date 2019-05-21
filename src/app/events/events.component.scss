@@ -3,7 +3,7 @@
 
 }
 
-.item:hover .itemHov{
+.item:hover ~ .itemHov{
   background-color: #CC0202;
 }
 

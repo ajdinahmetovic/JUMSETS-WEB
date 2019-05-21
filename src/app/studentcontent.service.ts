@@ -8,7 +8,8 @@ const CONFIG = {
   contentTypeIds: {
     oglasnaPloca: 'oglasnaPloca',
     sekcije: 'sekcije',
-    blogSekcija: 'blogSekcija'
+    blogSekcija: 'blogSekcija',
+    informacijeOVijecuUcenika: 'informacijeOVijecuUcenika'
 
   }
 };
@@ -44,6 +45,13 @@ export class StudentcontentService {
   getBlogSekcije(query?: object): Promise<Entry<any>[]> {
     return this.cdaClient.getEntries(Object.assign({
       content_type: CONFIG.contentTypeIds.blogSekcija
+    }, query))
+      .then(res => res.items);
+  }
+
+  getUInfo(query?: object): Promise<Entry<any>[]> {
+    return this.cdaClient.getEntries(Object.assign({
+      content_type: CONFIG.contentTypeIds.informacijeOVijecuUcenika
     }, query))
       .then(res => res.items);
   }

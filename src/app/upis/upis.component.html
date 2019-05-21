@@ -5,7 +5,7 @@
 </div>
 
 
-<div style="margin: 5%;">
+<div *ngIf="!pageComingSoon" style="margin: 5%;">
 
   <mat-grid-list [cols]="4" class="center-list">
 
@@ -19,7 +19,7 @@
 
 </div>
 
-<div style="width: 100%; height: 100%; text-align: center; align-items: center; font-family: Montserrat-Bold">
+<div *ngIf="pageComingSoon" style="width: 100%; height: 100%; text-align: center; align-items: center; font-family: Montserrat-Bold">
 
   <h1>Uskoro dostupno</h1>
 

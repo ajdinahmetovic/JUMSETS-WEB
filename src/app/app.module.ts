@@ -25,6 +25,12 @@ import { NgImageSliderModule } from 'ng-image-slider';
 import { SekcijedetailsComponent } from './sekcijedetails/sekcijedetails.component';
 import {AngularFittextModule} from 'angular-fittext';
 import { EventsComponent } from './events/events.component';
+import { ElderinfoComponent } from './elderinfo/elderinfo.component';
+import { RoditeljiComponent } from './roditelji/roditelji.component';
+import { VijecerComponent } from './vijecer/vijecer.component';
+import { KonsultacijeComponent } from './konsultacije/konsultacije.component';
+import { FilecardComponent } from './filecard/filecard.component';
+import {NgxSmartModalModule} from 'ngx-smart-modal';
 
 
 
@@ -47,6 +53,11 @@ import { EventsComponent } from './events/events.component';
     SekcijeComponent,
     SekcijedetailsComponent,
     EventsComponent,
+    ElderinfoComponent,
+    RoditeljiComponent,
+    VijecerComponent,
+    KonsultacijeComponent,
+    FilecardComponent,
 
   ],
   imports: [
@@ -58,7 +69,9 @@ import { EventsComponent } from './events/events.component';
     MatCardModule,
     NgImageSliderModule,
     MDBBootstrapModule.forRoot(),
-    AngularFittextModule
+    AngularFittextModule,
+    NgxSmartModalModule.forRoot()
+
 
   ],
   exports: [],

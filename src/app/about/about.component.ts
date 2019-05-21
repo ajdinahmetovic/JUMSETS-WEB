@@ -9,7 +9,7 @@ import {ContentfulService} from '../contentful.service'; // dodano
 })
 export class AboutComponent implements OnInit {
 
-  private oSkoli: Entry<any>[] = []; // dodano
+  oSkoli: Entry<any>[] = []; // dodano
 
 
   cols;

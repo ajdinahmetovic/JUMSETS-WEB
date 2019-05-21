@@ -1,7 +1,7 @@
 <mdb-navbar class="mobile-nofixed" SideClass="navbar navbar-expand-lg navbar-light white" [containerInside]="false">
 
   <mdb-navbar-brand style="margin-right: -20%">
-    <img style="width: 70%;" src="./assets/logo.png">
+    <img [routerLink]="'/'"  style="width: 70%; cursor: pointer" src="./assets/logo.png">
   </mdb-navbar-brand>
 
   <links >
@@ -15,7 +15,7 @@
       <li class="nav-item dropdown" dropdown>
         <a dropdownToggle mdbWavesEffect class="nav-link   waves-light" mdbWavesEffect>
           O skoli
-          <img src="./assets/arrow.png">
+          <img  src="./assets/arrow.png">
         </a>
 
         <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
@@ -52,7 +52,7 @@
 
       <li class="nav-item dropdown" dropdown>
       <a dropdownToggle mdbWavesEffect class="nav-link   waves-light" mdbWavesEffect>
-        Upis u I razred
+        Upis
         <img src="./assets/arrow.png">
       </a>
 
@@ -66,7 +66,7 @@
 
 
       <li class="nav-item dropdown" dropdown>
-        <a dropdownToggle mdbWavesEffect class="nav-link   waves-light" mdbWavesEffect>
+        <a [routerLink]="'/roditelji'" dropdownToggle mdbWavesEffect class="nav-link   waves-light" mdbWavesEffect>
           Kutak za roditelje
         </a>
       </li>

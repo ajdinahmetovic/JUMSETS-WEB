@@ -12,38 +12,43 @@
 
 
   <div class="scrolling-wrapper">
-
-
-    <div [ngClass]="width < 990 ? 'oglas-mobile' : 'oglas'" *ngFor="let oglas of oglasi">
-
-      <div style="height: 100%; width: 18rem; padding: 5%">
-
-
+    <div  data-toggle="modal" data-target="#exampleModalLong" [ngClass]="width < 990 ? 'oglas-mobile' : 'oglas'" *ngFor="let oglas of oglasi">
+      <div style="height: 100%; cursor: pointer; width: 18rem; padding: 5%">
         <h3 style="margin: 1%; width: 100%; font-family: Montserrat-SemiBold">{{oglas.fields.naslov}}</h3>
-
         <p style="overflow-y: scroll; height: 70%; width: 100%">{{oglas.fields.sadrzajOglasa}}</p>
-
-
       </div>
-
-
     </div>
 
 
   </div>
-
-  
-  
-
 </div>
 
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <mat-grid-list style="margin-left: 5%; margin-right: 5%" [cols]="width < 990 ? 2 : 5">
 
 
   <mat-grid-tile>
-    <img style="width: 90%" src="../../assets/vijece.png">
+    <img [routerLink]="'/vijece/ucenici'" style="width: 90%; cursor: pointer" src="../../assets/vijece.png">
   </mat-grid-tile>
 
   <mat-grid-tile>

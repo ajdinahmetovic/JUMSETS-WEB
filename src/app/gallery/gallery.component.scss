@@ -17,3 +17,53 @@ mat-grid-tile:hover {
   transform: scale(1);
   transition: transform .3s; /* Animation */
 }
+
+.item{
+  background-color: #707070;
+  color: white;
+  cursor: pointer;
+}
+
+.item:hover {
+  background-color: #CC0202;
+  color: white;
+  cursor: pointer;
+}
+
+
+.title-font{
+  font-size: 150%;
+}
+.date-font{
+  font-size: 100%;
+}
+
+@media only screen and (max-width: 1500px){
+  .title-font{
+    font-size: 80%;
+  }
+  .date-font{
+    font-size: 50%;
+  }
+}
+
+@media only screen and (max-width: 1440px){
+  .title-font{
+    font-size: 100%;
+  }
+  .date-font{
+    font-size: 50%;
+  }
+}
+
+@media only screen and (max-width: 800px){
+  .title-font{
+    font-size: 100%;
+  }
+  .date-font{
+    font-size: 50%;
+  }
+}
+
+
+

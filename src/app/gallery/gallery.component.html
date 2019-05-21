@@ -4,27 +4,24 @@
 
     <mat-grid-tile *ngFor="let album of normalizedArr">
 
-      <div style="width: 99%; height: 99%; background-color: #707070">
+      <div class="item" style="width: 99%; height: 99%;">
 
-        <ng-image-slider [imagePopup]="true" [infinite]="true" [showArrow]="false" style="width: 100%; height: 50%; margin-left: -5.5%; object-fit: cover" [images]="album.imgs" [slideImage]="1" [autoSlide]="2"></ng-image-slider>
+        <div style="width: 100%; height: 60%; overflow: hidden">
+          <ng-image-slider  [imagePopup]="true" [infinite]="true" [showArrow]="false" style="width: 100%; height: 50%; margin-left: -5.5%; object-fit: cover" [images]="album.imgs" [slideImage]="1" [autoSlide]="2"></ng-image-slider>
+        </div>
 
-        <div style="width: 100%; height: 40%; margin-top: 2%; padding: 5%">
+        <div style="width: 100%; height: 30%; margin-top: 2%; padding: 5%">
 
-          <h3 [minFontSize]="85" [fittext]="true" [fontUnit]="'%'" style="color: #FFFFFF">{{album.title.substr(0, 45)}}</h3>
+          <h3 class="title-font" style="color: #FFFFFF">{{album.title.substr(0, 45)}}</h3>
 
         </div>
 
-        <div style="height: 10%; padding: 2%;">
-
-       <!--   <p [fittext]="true" style="color: #FFFFFF">{{album.sys.createdAt | date: 'mediumDate'}} {{album.sys.publishedBy}}</p>  -->
-
+        <div style="height: 10%; padding: 2%; margin-bottom: 1%">
+          <p class="date-font">{{album.date | date: 'mediumDate'}}</p>
         </div>
 
       </div>
 
     </mat-grid-tile>
-
-
-
   </mat-grid-list>
 </div>

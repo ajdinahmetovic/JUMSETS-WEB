@@ -37,6 +37,7 @@ export class NewsAllComponent implements OnInit {
 
   container = 'container-news';
 
+  mainArr = [];
 
 
   sliderWidth = 0.60 * this.scrWidth;
@@ -47,7 +48,7 @@ export class NewsAllComponent implements OnInit {
   imgs: Array<object> = [];
 
 
-  private novosti: Entry<any>[] = []; // dodano
+   novosti: Entry<any>[] = []; // dodano
 
   async titleChanger() {
 
@@ -75,19 +76,27 @@ export class NewsAllComponent implements OnInit {
           return dateA - dateB;
         });
 
-        this.novosti.reverse();
+        //
         const arr = [];
+        const mainArr = [];
 
-        this.novosti.slice(0, 3).forEach(function (value) {
 
-          console.log(value.fields.slikeNovosti.fields.file.url);
+        this.novosti.slice(this.novosti.length - 4, this.novosti.length).forEach(function (value) {
+
+          console.log([value]);
+          mainArr.push(value);
           arr.push({
               image: value.fields.slikeNovosti.fields.file.url,
               thumbImage: value.fields.slikeNovosti.fields.file.url
           });
         });
 
-        this.imgs = arr;
+        this.novosti.reverse();
+        this.mainArr = mainArr.slice(1, 4).reverse();
+        arr.shift();
+        console.log('ARR:: ', arr);
+        this.imgs = [arr.slice(0, 1), ...arr.reverse()];
+        console.log(this.imgs);
      });
 
   }
@@ -97,7 +106,8 @@ export class NewsAllComponent implements OnInit {
   }
 
   navigate(id) {
-    this.router.navigateByUrl('/novost/' + id);
+    this.router.navigate(['/novost/' + id]);
+    console.log(id);
   }
 
   next(event) {
@@ -112,7 +122,7 @@ export class NewsAllComponent implements OnInit {
       }
       this.id--;
     }
-    console.log(event);
+    // console.log(event);
   }
 
 

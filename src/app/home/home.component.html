@@ -1,14 +1,15 @@
+<div style="width: 100%; overflow: hidden">
 
 <div style="" class="blur">
 
   <div  class="inside">
-    <p style="color: #CC0202;   font-size: calc(1.5em + 1vmin); font-family: Montserrat-Bold">
+    <p style="color: #CC0202; font-size: calc(1.5em + 1vmin); font-family: Montserrat-Bold">
       O ŠKOLI
     </p>
   </div>
 
 
-  <h4 style="color: #CC0202; text-align: justify; padding-top: 1%; font-size: calc(0.9em + 1vmin); font-family: Montserrat-SemiBoldItalic">
+  <h4 style="color: #CC0202; overflow: hidden; text-align: justify; padding-top: 1%; font-size: calc(0.9em + 1vmin); font-family: Montserrat-SemiBoldItalic">
     {{newsTitle}}
   </h4>
 
@@ -20,18 +21,16 @@
 
   <h1 style="padding-top: 2%; padding-left: 2%; color: #FFFFFF;"> <b>NOVOSTI I VIJESTI</b></h1>
 
-
-
   <div style="width: 100%; align-items: center; justify-content: center; text-align: justify">
 
     <div class="row " style="align-items: center; margin-left: 0; margin-right: 0; justify-content: center; text-align: justify; padding: 0">
 
-      <div (click)="navigate(news.sys.id)" class="col-sm" style="align-items: center;cursor: pointer; padding: 1.5%; margin-left: 0; margin-right: 0; justify-content: center; text-align: justify;" *ngFor="let news of novosti.slice(0, 4)">
+      <div (click)="navigate(news.sys.id)" class="col-sm" style="align-items: center;cursor: pointer; padding: 1.5%; margin-left: 0; margin-right: 0; justify-content: center; text-align: justify;" *ngFor="let news of novosti.slice(0, 3),  let i = index">
 
-        <div style="padding: 0; background-color: #FFFFFF">
+        <div (mouseenter)="hover(i)" (mouseleave)="hoverEnd(i)" [ngClass]="hoveredId === i ? 'item-hover' : 'item'" >
           <mat-grid-list class="tile" [cols]="2" rowHeight="265">
             <mat-grid-tile class="tile-l" >
-              <div class="title-block" >
+              <div [ngClass]="hoveredId === i ? 'title-block-hover' : 'title-block' " >
 
                 <p style="padding-top: 4%; padding-left: 4%; font-size: 80%; font-family: Montserrat-Regular">
 
@@ -46,7 +45,7 @@
 
             <mat-grid-tile class="tile">
               <div class="img-block">
-                <img class="img" src="{{news.fields.slikeNovosti.fields.file.url}}">
+                <img [ngClass]="hoveredId === i ? 'img-hover' : 'img'" src="{{news.fields.slikeNovosti.fields.file.url}}">
               </div>
             </mat-grid-tile>
 
@@ -61,7 +60,7 @@
   </div>
 
   <div style="width: 100%; text-align: center; padding-bottom: 2%">
-    <img style="width: 2%" src="../assets/white_arrow.png">
+    <img [routerLink]="'/novosti'" style="width: 2%; cursor: pointer;" src="../assets/white_arrow.png">
   </div>
   
 </div>
@@ -129,113 +128,79 @@
 </div>
 
 
-<div style="height: 10%"></div>
+<div style="margin-top: 5%; overflow: hidden; background-color: #707070" class="row">
 
-
-
-
-<div class="row">
-
-  <div class="col-sm">
-
+  <div class="col-sm-7">
     <div style="flex-direction: row; display: flex; text-align: center">
-
       <div class="gray-block">
-        <h1 class="class-block">OBRAZOVANJE ODRASLIH</h1>
+        <h1 style="font-size: calc(1.5em + 1vmin); overflow: hidden;" class="class-block">OBRAZOVANJE ODRASLIH</h1>
       </div>
-
-      <div [ngClass]=[thirdClass] (click)="elderDevelopment(0)">
-        <h1 class="class-block">III</h1>
-      </div>
-
-      <div [ngClass]=[fourthClass] (click)="elderDevelopment(1)">
-        <h1 class="class-block">IV</h1>
-      </div>
-
     </div>
-
-
-    <div style="height: 100%; margin-bottom: 20%; text-align: center; align-items: center; justify-content: center; background: #FFFFFF; width: 100%; padding: 5%; padding-top: 10%">
-
-      <p style="align-items: center">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in commodo mauris, vel luctus augue. Pellentesque eleifend, eros eget dignissim scelerisque, velit mauris aliquam mi, et placerat nisl nunc non neque. Aenean eget lacinia nulla. Nunc vel commodo nisi. Suspendisse mollis libero et facilisis consectetur. Fusce scelerisque lorem a mauris placerat, eu porttitor dui malesuada. Duis luctus nisi lectus, vitae efficitur diam ultricies in. Mauris ornare mattis est ac pretium. Suspendisse eget magna sodales, elementum odio ac, eleifend justo. Fusce commodo dolor sed augue euismod, id egestas mi ultricies. Aenean id elementum nunc, vitae malesuada ipsum.
-
-        Ut bibendum eleifend euismod. Donec euismod eleifend varius. Curabitur vel porttitor nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris sit amet mattis dui, nec interdum dolor. Donec non mauris fringilla, efficitur orci in, interdum velit. In sit amet ante placerat, euismod eros eget, rutrum orci. Vivamus rutrum, magna sit amet sodales aliquet, libero eros hendrerit risus, ac viverra lacus nibh id augue. Vestibulum vitae ex pellentesque, molestie ex nec, pretium massa. Cras tempus eleifend massa at ultricies.
-      </p>
-
-    </div>
-
   </div>
 
-  <div class="col-lg">
+  <div style="text-align: center; padding: 0" class="col-sm-5">
+    <div style="flex-direction: row; width: auto; display: flex; height: 100%; text-align: center">
+      <div style="cursor: pointer" [ngClass]="infoClass" (click)="elderDevelopment(0)" >
+        <h1 style="font-size: calc(1.5em + 1vmin); overflow: hidden;" class="class-block">INFORMACIJE</h1>
+      </div>
 
-    <div style="margin-bottom: 2%" class="gray-block">
-      <h1 class="class-block">NADOLAZECI DOGADJAJI</h1>
-    </div>
+      <div style="cursor: pointer" [ngClass]=[thirdClass] (click)="elderDevelopment(1)">
+        <h1 style="font-size: calc(1.5em + 1vmin); overflow: hidden;" class="class-block">III</h1>
+      </div>
 
-    <div class="blur-calendar">
-      <app-events></app-events>
+      <div style="cursor: pointer" [ngClass]=[fourthClass] (click)="elderDevelopment(2)">
+        <h1 style="font-size: calc(1.5em + 1vmin); overflow: hidden;" class="class-block">IV</h1>
+      </div>
     </div>
   </div>
 
 </div>
 
+  <!--
+<div class="row">
+  <div style="text-align: center; padding: 0" class="col-sm">
+    <div style="flex-direction: row; display: flex; text-align: center">
+      <div style="cursor: pointer" [ngClass]="infoClass" (click)="elderDevelopment(0)" >
+        <h1 style="font-size: calc(1.5em + 1vmin); " class="class-block">INFORMACIJE</h1>
+      </div>
 
-<!--
+      <div style="cursor: pointer" [ngClass]=[thirdClass] (click)="elderDevelopment(1)">
+        <h1 style="font-size: calc(1.5em + 1vmin);" class="class-block">III</h1>
+      </div>
 
-<mat-grid-list [cols]="elderCols" >
+      <div style="cursor: pointer" [ngClass]=[fourthClass] (click)="elderDevelopment(2)">
+        <h1 style="font-size: calc(1.5em + 1vmin);" class="class-block">IV</h1>
+      </div>
+    </div>
+  </div>
+</div>
+ -->
+  <div class="row">
 
-  <mat-grid-tile>
-    <div style="width: 100%;">
-
-      <mat-grid-list [cols]="5">
-
-        <mat-grid-tile [colspan]="3">
-          <div class="gray-block">
-            <h1 class="class-block">OBRAZOVANJE ODRASLIH</h1>
-          </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-          <div [ngClass]=[thirdClass] (click)="elderDevelopment(0)">
-            <h1 class="class-block">III</h1>
-          </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-          <div [ngClass]=[fourthClass] (click)="elderDevelopment(1)">
-            <h1 class="class-block">IV</h1>
-          </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile [rowspan]="4" [colspan]="4">
-          <div style="height: 100%; margin-bottom: 20%; text-align: center; align-items: center; justify-content: center; background: #FFFFFF; width: 100%; padding: 5%; padding-top: 10%">
-
-            <p style="align-items: center">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in commodo mauris, vel luctus augue. Pellentesque eleifend, eros eget dignissim scelerisque, velit mauris aliquam mi, et placerat nisl nunc non neque. Aenean eget lacinia nulla. Nunc vel commodo nisi. Suspendisse mollis libero et facilisis consectetur. Fusce scelerisque lorem a mauris placerat, eu porttitor dui malesuada. Duis luctus nisi lectus, vitae efficitur diam ultricies in. Mauris ornare mattis est ac pretium. Suspendisse eget magna sodales, elementum odio ac, eleifend justo. Fusce commodo dolor sed augue euismod, id egestas mi ultricies. Aenean id elementum nunc, vitae malesuada ipsum.
-
-              Ut bibendum eleifend euismod. Donec euismod eleifend varius. Curabitur vel porttitor nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris sit amet mattis dui, nec interdum dolor. Donec non mauris fringilla, efficitur orci in, interdum velit. In sit amet ante placerat, euismod eros eget, rutrum orci. Vivamus rutrum, magna sit amet sodales aliquet, libero eros hendrerit risus, ac viverra lacus nibh id augue. Vestibulum vitae ex pellentesque, molestie ex nec, pretium massa. Cras tempus eleifend massa at ultricies.
-            </p>
-
-          </div>
-
-        </mat-grid-tile>
-
-
-      </mat-grid-list>
-
+    <div *ngIf="!isInfo" class="col-sm">
+      <div style=" margin-bottom: 5%; overflow: hidden; text-align: center; align-items: center; justify-content: center; background: #FFFFFF; width: 100%; padding: 5%; padding-top: 10%">
+        <p style="align-items: center">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in commodo mauris, vel luctus augue. Pellentesque eleifend, eros eget dignissim scelerisque, velit mauris aliquam mi, et placerat nisl nunc non neque. Aenean eget lacinia nulla. Nunc vel commodo nisi. Suspendisse mollis libero et facilisis consectetur. Fusce scelerisque lorem a mauris placerat, eu porttitor dui malesuada. Duis luctus nisi lectus, vitae efficitur diam ultricies in. Mauris ornare mattis est ac pretium. Suspendisse eget magna sodales, elementum odio ac, eleifend justo. Fusce commodo dolor sed augue euismod, id egestas mi ultricies. Aenean id elementum nunc, vitae malesuada ipsum.
+          Ut bibendum eleifend euismod. Donec euismod eleifend varius. Curabitur vel porttitor nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris sit amet mattis dui, nec interdum dolor. Donec non mauris fringilla, efficitur orci in, interdum velit. In sit amet ante placerat, euismod eros eget, rutrum orci. Vivamus rutrum, magna sit amet sodales aliquet, libero eros hendrerit risus, ac viverra lacus nibh id augue. Vestibulum vitae ex pellentesque, molestie ex nec, pretium massa. Cras tempus eleifend massa at ultricies.
+        </p>
+      </div>
     </div>
 
-  </mat-grid-tile>
+    <div *ngIf="isInfo" style="width: 100%" class="col-sm">
+      <app-elderinfo></app-elderinfo>
+    </div>
 
-  <mat-grid-tile>
 
+  </div>
+
+<div style="margin-top: 5%" class="row">
+  <div class="col-lg">
+    <div style="margin-bottom: 2%" class="gray-block">
+      <h1 class="class-block">NADOLAZECI DOGADJAJI</h1>
+    </div>
     <div class="blur-calendar">
-
       <app-events></app-events>
-
     </div>
-  </mat-grid-tile>
-
-</mat-grid-list>
--->
+  </div>
+</div>
+</div>

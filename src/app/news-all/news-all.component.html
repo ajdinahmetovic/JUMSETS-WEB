@@ -1,23 +1,13 @@
-
 <div style="height: 10%; width: 100%; background-color: #707070; ">
-
   <h1 style="margin-left: 2%;padding-top: 1%">OBAVIJESTI</h1>
-
-
 </div>
-
 <div [ngClass]="container">
-
-  <div [ngClass]="scrWidth < 990 ? 'slider-mobile' : 'slider'">
+  <div style="background-color: #707070; padding: 0.5%" [ngClass]="scrWidth < 990 ? 'slider-mobile' : 'slider'">
 <!--
-
       <img (click)="previous()" style="position: absolute; top: 50%; left: 1%; z-index: 50; width: 2%;" src="../../assets/left.png">
-
       <img (click)="next()" style="position: absolute; top: 50%; z-index: 50; width: 2%;" [ngClass]="scrWidth < 990 ? 'arrow-mobile' : 'arrow'" src="../../assets/right.png">
 -->
-
     <ng-image-slider [imagePopup]="false" [infinite]="true" (arrowClick)="next($event)" [showArrow]="true" style="margin-left: -1.5%" [imageSize] = "{width: sliderWidth, height: sliderHeight}" [images]="imgs" [slideImage]="1" [autoSlide]="3"  #slider></ng-image-slider>
-
     <!--
     <mdb-carousel style="height: 100%"  [isControls]="true" [animation]="'slide'">
       <mdb-carousel-item *ngFor="let novost of novosti.slice(novosti.length - 3, novosti.length)">
@@ -28,54 +18,27 @@
       </mdb-carousel-item>
     </mdb-carousel>
     -->
-
   </div>
-
   <div [ngClass]="scrWidth < 990 ? 'headlines-mobile' : 'headlines'">
-
-    <div [ngClass]=" i == id  ? 'headline-selected': 'headline'" *ngFor="let novost of novosti.slice(0, 3); let i = index">
-
+    <div [ngClass]=" i == id  ? 'headline-selected': 'headline'" *ngFor="let novost of mainArr; let i = index">
       <h1 [ngClass]=" i == id  ? 'headline-title-selected': 'headline-title'"> {{novost.fields.naslov.substr(0, 80)}}</h1>
-
-
     </div>
-
-  
 </div>
-
 </div>
-
 
 <div style="margin-top: 10%">
-
-
   <mat-grid-list [cols]="scrWidth < 990 ? 2 : 4">
-
-
-    <mat-grid-tile (click)="navigate(novost.sys.id)" *ngFor="let novost of novosti">
-
-      <div style="width: 90%; height: 90%; background-color: #707070">
-
-        <img style="width: 100%; height: 50%; object-fit: cover" src="{{novost.fields.slikeNovosti.fields.file.url}}">
-
+    <mat-grid-tile *ngFor="let novost of novosti">
+      <div [routerLink]="'/novost/' + novost.sys.id" style="width: 90%; height: 90%;" class="item">
+        <img class="item-img" [src]="novost.fields.slikeNovosti.fields.file.url">
         <div style="width: 100%; height: 40%; margin-top: 2%; padding: 5%">
-
-          <h3 style="color: #FFFFFF">{{novost.fields.naslov.substr(0, 45)}}</h3>
-
+          <h3 class="title-font">{{novost.fields.naslov.substr(0, 45)}}</h3>
         </div>
-
-        <div style="height: 10%; padding: 2%;">
-
-          <p style="color: #FFFFFF">{{novost.sys.createdAt | date: 'mediumDate'}} {{novost.sys.publishedBy}}</p>
-
+        <div style="height: 10%; padding: 2%; margin-bottom: 1%">
+          <p class="date-font">{{novost.sys.createdAt | date: 'mediumDate'}}</p>
         </div>
-
       </div>
-
     </mat-grid-tile>
-
-
-
   </mat-grid-list>
-
 </div>
+

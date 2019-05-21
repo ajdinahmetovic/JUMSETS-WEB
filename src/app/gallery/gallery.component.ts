@@ -1,16 +1,14 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Entry} from 'contentful';
-import {ContentfulService} from '../contentful.service';
-import {ModalDirective} from 'angular-bootstrap-md';
-
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss']
 })
-export class GalleryComponent implements OnInit {
+export class GalleryComponent implements OnInit, AfterViewInit {
 
   @ViewChild('basicModal') modal: ModalDirective;
+  @ViewChild('albumDiv', {read: ElementRef}) elementView: ElementRef;
 
   private galerija: Entry<any>[] = []; // dodano
 
@@ -23,18 +21,20 @@ export class GalleryComponent implements OnInit {
 
   normalizedArr = [];
 
-   currImg;
-   title;
+  currImg;
+  title;
 
-   scrHeight = window.innerHeight;
-   scrWidth = window.innerWidth;
+  scrHeight = window.innerHeight;
+  scrWidth = window.innerWidth;
 
-   imgWidth;
-   imgHeight;
+  imgWidth;
+  imgHeight;
 
-   cols = 3;
-   galCols = 5;
-   colspan = 2;
+  cols = 3;
+  galCols = 4;
+  colspan = 2;
+  albumH;
+  albumV;
 
 
   constructor(private contentfulService: ContentfulService) {
@@ -52,7 +52,7 @@ export class GalleryComponent implements OnInit {
 
       this.cols = 3;
       this.colspan = 2;
-      this.galCols = 5;
+      this.galCols = 4;
 
       this.imgWidth = this.scrWidth - (0.10 * this.scrWidth) / 5;
 
@@ -67,7 +67,7 @@ export class GalleryComponent implements OnInit {
         this.galerija = picture;
 
 
-        let arr = [];
+        const arr = [];
 
         let album: Array<object> = [];
 
@@ -85,7 +85,8 @@ export class GalleryComponent implements OnInit {
 
           arr.push({
             title: value.fields.naslovAlbuma,
-            imgs: album
+            imgs: album,
+            date: value.sys.createdAt
           });
 
         });
@@ -98,7 +99,6 @@ export class GalleryComponent implements OnInit {
 
   }
 
-
   showImg(arg) {
     this.currImg = arg.fields.fotovideo.fields.file.url;
     this.title = arg.fields.opis;
@@ -107,5 +107,10 @@ export class GalleryComponent implements OnInit {
 
   }
 
+  ngAfterViewInit() {
 
+  }
 }
+import {ContentfulService} from '../contentful.service';
+
+import {ModalDirective} from 'angular-bootstrap-md';

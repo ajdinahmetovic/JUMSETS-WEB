@@ -1,9 +1,38 @@
 
-<div style="margin: 5%">
-  <h1>{{content.fields.naslov}}</h1>
 
-  <img [src]="content.fields.slikeNovosti.fields.file.url">
+<meta property="og:image" content="{{content.fields.slikeNovosti.fields.file.url}}" />
 
-  <div [innerHTML]="parsed"></div>
+
+<div style="width: 100%; text-align: justify; display: flex; flex-direction: row; background-color: #CC0202; height: auto; padding: 1%">
+  <h1 style="color: #FFFFFF">{{content.fields.naslov}}</h1>
 </div>
 
+<div  style="display: flex; width: 100%; flex-direction: row; ">
+
+  <div *ngIf="width>=990" style="width: 20%; display: flex; transform: scale(0.9);  flex-direction: column">
+    <div style="width: 100%; text-align: center; height: auto; margin-bottom: 5%; background-color: #CC0202; padding: 1%">
+      <h1 style="color: white;">Dogadjaji</h1>
+    </div>
+    <app-events></app-events>
+  </div>
+
+  <div class="blur">
+      <div style="margin: 5%">
+
+        <img style="width: 100%" [src]="content.fields.slikeNovosti.fields.file.url">
+
+        <div style="width: 100%; overflow: hidden">
+          <div style="width: 100%; margin-top: 5%" [innerHTML]="parsed"></div>
+        </div>
+      </div>
+
+  </div>
+
+    <div *ngIf="width>=990" style="width: 20%; display: flex; flex-direction: column; transform: scale(0.9)">
+      <div style="width: 100%; text-align: center; height: auto; margin-bottom: 5%; background-color: #CC0202; padding: 1%">
+        <h1 style="color: white;">Popularno</h1>
+      </div>
+      <app-events></app-events>
+    </div>
+
+</div>

@@ -11,6 +11,9 @@ const CONFIG = {
     smjerovi: 'smjerovi',
     galerija: 'gallery',
     dogadjaj: 'dogadjaj',
+    elderInfo: 'elderInfo',
+    informacijeOVijecuRoditelja: 'informacijeOVijecuRoditelja',
+    informacijeZaRoditelje: 'informacijeZaRoditelje'
   }
 };
 
@@ -63,6 +66,25 @@ export class ContentfulService {
   getEvents(query?: object): Promise<Entry<any>[]> {
     return this.cdaClient.getEntries(Object.assign({
       content_type: CONFIG.contentTypeIds.dogadjaj
+    }, query))
+      .then(res => res.items);
+  }
+  getElderInfo(query?: object): Promise<Entry<any>[]> {
+    return this.cdaClient.getEntries(Object.assign({
+      content_type: CONFIG.contentTypeIds.elderInfo
+    }, query))
+      .then(res => res.items);
+  }
+  getRInfo(query?: object): Promise<Entry<any>[]> {
+    return this.cdaClient.getEntries(Object.assign({
+      content_type: CONFIG.contentTypeIds.informacijeOVijecuRoditelja
+    }, query))
+      .then(res => res.items);
+  }
+
+  getTermini(query?: object): Promise<Entry<any>[]> {
+    return this.cdaClient.getEntries(Object.assign({
+      content_type: CONFIG.contentTypeIds.informacijeZaRoditelje
     }, query))
       .then(res => res.items);
   }

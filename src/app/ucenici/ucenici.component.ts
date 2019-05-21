@@ -11,7 +11,7 @@ import { DOCUMENT } from '@angular/common';
 })
 export class UceniciComponent implements OnInit {
 
-  private oglasi: Entry<any>[] = []; // dodano
+  oglasi: Entry<any>[] = []; // dodano
 
   width = window.innerWidth;
 

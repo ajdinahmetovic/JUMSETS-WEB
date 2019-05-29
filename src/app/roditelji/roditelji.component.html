@@ -1,0 +1,16 @@
+
+<mat-grid-list [cols]="width > 990 ? 3 : 1" class="center-list" style="margin: 10%;">
+
+  <mat-grid-tile>
+    <img [routerLink]="'/vijece/roditelji'" style="width: 90%; cursor: pointer; height: 90%; object-fit: contain" src="../../assets/vroditelja.png">
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <img style="width: 90%; height: 90%; object-fit: contain" src="../../assets/rzvonjenja.png">
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <img [routerLink]="'/informacije'" style="width: 90%; cursor: pointer; height: 90%; object-fit: contain" src="../../assets/termin.png">
+  </mat-grid-tile>
+
+</mat-grid-list>

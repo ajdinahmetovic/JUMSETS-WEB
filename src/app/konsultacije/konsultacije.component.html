@@ -1,0 +1,65 @@
+<mat-grid-list [cols]="cols">
+
+
+  <mat-grid-tile>
+    <img style="object-fit: fill; width: 85%" src="../../assets/termin.png" >
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+
+    <div class="blur" style="width: 85%; height: 85%">
+
+
+      <div style="height: 10%; width: 100%; background-color: #CC0202; display: flex; flex-direction: row; align-items: center; justify-content: center; text-align: center">
+
+        <div style="width: 5%;">
+
+        </div>
+        <div style="width: 35%; text-align: left">
+          <h5 style="color: #FFFFFF">Profesor</h5>
+        </div>
+
+        <div style="width: 25%; text-align: center">
+          <h5 style="color: #FFFFFF">Razred</h5>
+        </div>
+
+        <div style="width: 40%">
+          <h5 style="color: #FFFFFF">Termin</h5>
+        </div>
+
+
+      </div>
+
+
+      <div style="height: 90%; overflow-y: scroll; overflow-x: hidden; width: 100%">
+
+
+        <div *ngFor="let termin of termini" class="row-itm">
+          <div style="width: 5%;">
+          </div>
+          <div style="width: 35%; text-align: left">
+            <h5 style="color: #FFFFFF">{{termin.fields.profesor}}</h5>
+          </div>
+
+          <div style="width: 25%; text-align: center">
+            <h5 style="color: #FFFFFF">{{termin.fields.razred}}</h5>
+          </div>
+
+
+          <div style="width: 40%">
+            <h5 style="color: #FFFFFF">{{termin.fields.vrijemeOdrzavanja}}</h5>
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+
+
+    </div>
+
+  </mat-grid-tile>
+
+</mat-grid-list>

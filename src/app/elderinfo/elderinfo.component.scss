@@ -1,0 +1,22 @@
+
+
+div.scrollmenu {
+  background-color: #707070;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+div.scrollmenu app-filecard {
+
+  display: inline-flex;
+  width: 18rem;
+  color: white;
+  margin: 1%;
+  text-align: center;
+  text-decoration: none;
+}
+
+div.scrollmenu app-filecard:hover {
+  background-color: #CC0202;
+}
+

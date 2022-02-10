@@ -36,7 +36,7 @@
     "ng-image-slider": "^1.3.0",
     "ng-simple-slideshow": "^1.2.9",
     "ngx-smart-modal": "^7.1.1",
-    "node-sass": "^4.11.0",
+    "node-sass": "^7.0.0",
     "particles.js": "^2.0.0",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
